@@ -1,7 +1,8 @@
 from water import *
 
 current_user = Water(3000)
-foods = current_user.food_dict = current_user.import_from_csv("Water Footprint of Food Guide.csv", "Food", "Litres")
+foods = current_user.food_dict = current_user.import_from_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
+                                                              serving="Serving Size", category="Category")
 
 end = False
 
@@ -11,7 +12,7 @@ while not end:
     If you want to see all the items you have added, type 'my list'. 
     If the list of food you consume has ended, type 'end'. 
     Type here: """)
-    food = format_data(user_input)
+    food = format_data(user_input, True)
     if food == "list":
         current_user.print_foods()
     elif food == "mylist":

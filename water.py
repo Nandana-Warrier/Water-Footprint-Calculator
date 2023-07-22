@@ -1,12 +1,30 @@
 import csv
+import re
 
 
-def format_data(data):
-    data = data.replace(" ", "")
+def format_data(data, replace_spaces):
+    if replace_spaces:
+        data = data.replace(" ", "")
     if data.isdigit():
         return int(data)
     else:
+        if "," in data or "/" in data and ", " not in data:
+            return re.split("/,", data)
         return str(data).lower()
+
+
+def create_value_dict(pros_keys, dict_list, replace_spaces):
+    """Returns list of dictionaries with characteristics for each key in the keys list from data_list"""
+    value_list = []
+    for d in dict_list:
+        a_dict = {}
+        for key in pros_keys:
+            for k in d:
+                if k == key or key == "Formatted":
+                    break
+            a_dict.update({key: format_data(d[k], replace_spaces)} if key is not None else {})
+        value_list.append(a_dict)
+    return value_list
 
 
 class Water:
@@ -25,10 +43,12 @@ class Water:
 
         self.unit = unit
         the_list = []
+        foods_only = []
 
         def import_function():
             """Returns food_dict with food name as keys and dictionaries of its characteristics as values."""
-            in_list = create_value_dict()
+            in_list = create_value_dict(["Formatted", serving, self.unit, category, explanation, other],
+                                        the_list, True)
             i = 0
             for d in the_list:
                 value_dict = in_list[i]
@@ -46,6 +66,7 @@ class Water:
             dict_obj = csv.DictReader(file)
             for row in dict_obj:
                 the_list.append(row)
+                foods_only.append(row[food])
             return import_function()
 
     def print_foods(self):
@@ -57,7 +78,7 @@ class Water:
     def add_food_item(self, food):
         """Adds the water footprint of the food item in a list of food water footprints"""
 
-        food = format_data(food)  # Formatting argument to number or changing it to lowercase and removing spaces
+        food = format_data(food, True)  # Formatting argument to number or changing it to lowercase and removing spaces
 
         # If user input serial number of the food item from the list
         if isinstance(food, int):
@@ -89,8 +110,6 @@ class Water:
     def calculate_food_wf(self):
         """Calculates the total water footprint of the people in the household"""
         return f"Your water footprint is {sum(self.user_wfs) * self.household_members} in {self.unit}"
-
-
 
     def avg_compare(self):
         """ TODO: Create a method that compares the actual water footprint with the average and returns appropriate
