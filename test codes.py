@@ -133,7 +133,7 @@ the_list = [{'Food': 'Chocolate', 'Serving Size': '4', 'Gallons': '516', 'Litres
 keys = ["Tip1", "Tip2", "Tip3", "Tip4", "Tip5"]
 
 
-def create_value_dict():
+def og_create_value_dict():
     """Returns list of dictionaries with characteristics like Litres, Gallons, Serving that will be values
     for each food name in food_dict"""
     value_list = []  # Values of Foods which are dicts of characteristics like Gallons, Litres, Serving Size
@@ -147,9 +147,13 @@ def create_value_dict():
     return value_list
 
 
-def general_create_value_dict(pros_keys, og_keys, replace_spaces):
+def create_value_dict(pros_keys, og_keys, replace_spaces):
     """Returns list of dictionaries with characteristics for each key in the keys list from data_list"""
     value_list = []
     for key, value in zip(pros_keys, og_keys):
         a_dict = {}
         a_dict.update({key: format_data(value, replace_spaces)} if key is not None else {})
+        value_list.append(a_dict)
+    return value_list
+
+

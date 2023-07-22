@@ -1,7 +1,8 @@
 from water import *
 
 current_user = Water(3000)
-foods = current_user.food_dict = current_user.import_from_csv("Water Footprint of Food Guide.csv", "Food", "Litres")
+foods = current_user.food_dict = current_user.import_from_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
+                                                              serving="Serving Size", category="Category")
 
 end = False
 

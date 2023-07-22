@@ -8,9 +8,23 @@ def format_data(data, replace_spaces):
     if data.isdigit():
         return int(data)
     else:
-        if "/" in data or "," in data:
+        if "," in data or "/" in data and ", " not in data:
             return re.split("/,", data)
         return str(data).lower()
+
+
+def create_value_dict(pros_keys, dict_list, replace_spaces):
+    """Returns list of dictionaries with characteristics for each key in the keys list from data_list"""
+    value_list = []
+    for d in dict_list:
+        a_dict = {}
+        for key in pros_keys:
+            for k in d:
+                if k == key or key == "Formatted":
+                    break
+            a_dict.update({key: format_data(d[k], replace_spaces)} if key is not None else {})
+        value_list.append(a_dict)
+    return value_list
 
 
 class Water:
@@ -29,23 +43,12 @@ class Water:
 
         self.unit = unit
         the_list = []
-
-        def create_value_dict():
-            """Returns list of dictionaries with characteristics like Litres, Gallons, Serving that will be values
-            for each food name in food_dict"""
-            value_list = []  # Values of Foods which are dicts of characteristics like Gallons, Litres, Serving Size
-            for dic in the_list:
-                a_dict = {"Formatted": format_data(dic[food], True), self.unit: int(dic[self.unit])}
-                a_dict.update({"Serving": int(dic[serving])} if serving is not None else {})
-                a_dict.update({"Category": dic[category].split(", ")} if category is not None else {})
-                a_dict.update({"Explanation": dic[explanation]} if explanation is not None else {})
-                a_dict.update({"Other": format_data(dic[other], True)} if other is not None else {})
-                value_list.append(a_dict)
-            return value_list
+        foods_only = []
 
         def import_function():
             """Returns food_dict with food name as keys and dictionaries of its characteristics as values."""
-            in_list = create_value_dict()
+            in_list = create_value_dict(["Formatted", serving, self.unit, category, explanation, other],
+                                        the_list, True)
             i = 0
             for d in the_list:
                 value_dict = in_list[i]
@@ -63,6 +66,7 @@ class Water:
             dict_obj = csv.DictReader(file)
             for row in dict_obj:
                 the_list.append(row)
+                foods_only.append(row[food])
             return import_function()
 
     def print_foods(self):
@@ -71,13 +75,12 @@ class Water:
             print(f"{i}. {food}")
             i += 1
 
-    def add_food_item(self, user_input):
+    def add_food_item(self, food):
         """Adds the water footprint of the food item in a list of food water footprints"""
 
-        food = format_data(user_input, True)  # Formatting argument to number or changing it to lowercase and
-        # removing spaces
+        food = format_data(food, True)  # Formatting argument to number or changing it to lowercase and removing spaces
 
-        # If user input serial number of the food item from the list.
+        # If user input serial number of the food item from the list
         if isinstance(food, int):
             i = 1
             for f in self.food_dict:
@@ -98,11 +101,11 @@ class Water:
 
         # Adding the food to users lists of foods and water footprints
         try:
-            self.user_wfs.append(int(self.food_dict[food][self.unit]))
+            self.user_wfs.append(float(self.food_dict[food][self.unit]))
             self.user_foods.append(food)
             print(f"{food} added")
         except KeyError:
-            print(f"{user_input} is out of range or not in our database. Maybe you misspelled?")
+            print(f"{food} is out of range or not in our database. Maybe you misspelled?")
 
     def calculate_food_wf(self):
         """Calculates the total water footprint of the people in the household"""
