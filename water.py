@@ -26,19 +26,6 @@ class Water:
         self.unit = unit
         the_list = []
 
-        def create_value_dict():
-            """Returns list of dictionaries with characteristics like Litres, Gallons, Serving that will be values
-            for each food name in food_dict"""
-            value_list = []  # Values of Foods which are dicts of characteristics like Gallons, Litres, Serving Size
-            for dic in the_list:
-                a_dict = {"Formatted": format_data(dic[food]), self.unit: int(dic[self.unit])}
-                a_dict.update({"Serving": int(dic[serving])} if serving is not None else {})
-                a_dict.update({"Category": dic[category].split(", ")} if category is not None else {})
-                a_dict.update({"Explanation": explanation} if explanation is not None else {})
-                a_dict.update({"Other": format_data(dic[other])} if other is not None else {})
-                value_list.append(a_dict)
-            return value_list
-
         def import_function():
             """Returns food_dict with food name as keys and dictionaries of its characteristics as values."""
             in_list = create_value_dict()
