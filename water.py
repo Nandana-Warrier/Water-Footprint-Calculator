@@ -32,15 +32,10 @@ class Water:
             value_list = []  # Values of Foods which are dicts of characteristics like Gallons, Litres, Serving Size
             for dic in the_list:
                 a_dict = {"Formatted": format_data(dic[food]), self.unit: int(dic[self.unit])}
-                if serving is not None:
-                    a_dict["Serving"] = int(dic[serving])
-                if category is not None:
-                    category_list = dic[category].split(", ")
-                    a_dict["Category"] = category_list
-                if explanation is not None:
-                    a_dict["Explanation"] = explanation
-                if other is not None:
-                    a_dict["Other"] = format_data(dic[other])
+                a_dict.update({"Serving": int(dic[serving])} if serving is not None else {})
+                a_dict.update({"Category": dic[category].split(", ")} if category is not None else {})
+                a_dict.update({"Explanation": explanation} if explanation is not None else {})
+                a_dict.update({"Other": format_data(dic[other])} if other is not None else {})
                 value_list.append(a_dict)
             return value_list
 
