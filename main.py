@@ -11,7 +11,7 @@ while not end:
     If you want to see all the items you have added, type 'my list'. 
     If the list of food you consume has ended, type 'end'. 
     Type here: """)
-    food = format_data(user_input)
+    food = format_data(user_input, True)
     if food == "list":
         current_user.print_foods()
     elif food == "mylist":
