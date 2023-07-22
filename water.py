@@ -77,7 +77,7 @@ class Water:
         food = format_data(user_input, True)  # Formatting argument to number or changing it to lowercase and
         # removing spaces
 
-        # If user input serial number of the food item from the list
+        # If user input serial number of the food item from the list. This is for a commit.
         if isinstance(food, int):
             i = 1
             for f in self.food_dict:
