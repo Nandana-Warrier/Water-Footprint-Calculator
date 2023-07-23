@@ -30,8 +30,9 @@ def create_value_dict(pros_keys, dict_list, replace_spaces):
 
 
 class Water:
-    def __init__(self, average=0, household_members=1):
+    def __init__(self, period, average=0, household_members=1):
         self.unit = ""
+        self.period = period
         self.food_dict = {}  # Dictionary of Food with values being dicts themselves of characteristics
         self.average = average  # the value of average is stored here
         self.household_members = household_members
@@ -76,8 +77,14 @@ class Water:
             print(f"{i}. {food}")
             i += 1
 
-    def add_food_item(self, user_input):
+    def add_food_item(self, food, wf, times):
         """Adds the water footprint of the food item in a list of food water footprints"""
+        self.user_wfs.append(wf*times)
+        self.user_foods.append(food)
+        print(f"{food} added")
+
+    def check_food_item(self, user_input):
+        """Returns food and wf as a dict with same keys among updating the object attributes and other things"""
 
         food = user_input
         food = format_data(food, True)  # Formatting argument to number or changing it to lowercase and removing spaces
@@ -103,15 +110,15 @@ class Water:
 
         # Adding the food to users lists of foods and water footprints
         try:
-            self.user_wfs.append(float(self.food_dict[food][self.unit]))
-            self.user_foods.append(food)
-            print(f"{food} added")
+            wf = float(self.food_dict[food][self.unit])
+            serving = self.food_dict[food]['Serving Size']
+            return {'food': food, 'wf': wf, 'Serving Size': serving}
         except KeyError:
             print(f"{user_input} is out of range or not in our database. Maybe you misspelled?")
 
     def calculate_food_wf(self):
         """Calculates the total water footprint of the people in the household"""
-        return f"Your water footprint is {sum(self.user_wfs) * self.household_members} in {self.unit}"
+        return f"Your water footprint is {sum(self.user_wfs) * self.household_members} in {self.unit} per {self.period}."
 
     def display_tips(self, file, category, tip1, tip2=None, tip3=None, tip4=None, tip5=None):
         """Displays all applicable tips to improve the user's water footprints.
@@ -128,17 +135,24 @@ class Water:
             i += 1
 
         # To check all the tips that apply to the user through self.user_foods
+        foods = []
         for food in self.user_foods:
             for c in category_tips:
                 if self.food_dict[food][category] == c:
+                    foods.append(food)
                     for tip in [tip1, tip2, tip3, tip4, tip5]:
                         if tip is not None:
                             tip_value = category_tips[c].get(tip)
                             if tip_value is not None:  # Check if the tip exists in the dictionary
                                 self.user_improvements.add(tip_value)
-
+        print("\nSince you chose: ")
+        for food in foods:
+            print(f"- {food}")
+        print("\n")
         for tip in self.user_improvements:
             print(f"- {tip}")
+
+    # TODO: Create an asking for explanations for the water footprint of each item that the user consumes.
 
     def avg_compare(self):
         """ TODO: Create a method that compares the actual water footprint with the average and returns appropriate
