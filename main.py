@@ -13,7 +13,7 @@ print(current_user.print_foods())
 end = False
 
 while not end:
-    user_input = input("""Which all food from this list do you consume? Type in the name or the serial number. 
+    user_input = input("""\nWhich all food from this list do you consume? Type in the name or the serial number. 
     If you want the list, type 'list'. 
     If you want to see all the items you have added, type 'my list'. 
     If the list of food you consume has ended, type 'end'. 
