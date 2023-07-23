@@ -31,7 +31,7 @@ while not end:
             times = ""
             while not isinstance(times, float) and not isinstance(times, int):
                 times = input(f"How many times do you have {items['food']} per week, assuming the serving "
-                                        f"size is {items['Serving Size']} ounces?: ")
+                              f"size is {items['Serving Size']} ounces?: ")
                 try:
                     times = float(times)
                 except ValueError:

@@ -55,7 +55,7 @@ class Water:
         self.user_wfs = []  # The water footprints of the users should be stored here. Sum is to be calculated from
         self.user_improvements = set({})  # This set has all tips for the user to improve their water footprint
 
-    def import_food_csv(self, file, food, unit, serving=None, category=None, explanation=None, other=None):
+    def import_food_csv(self, food_file, food_item, unit, serving=None, category=None, explanation=None, other=None):
         """Returns a list of dictionaries of food items and their characteristics as individual dictionaries"""
 
         self.unit = unit
@@ -69,21 +69,21 @@ class Water:
             i = 0
             for d in the_list:
                 value_dict = in_list[i]
-                self.food_dict[the_list[i][food]] = value_dict
+                self.food_dict[the_list[i][food_item]] = value_dict
                 i += 1
             return self.food_dict
 
-        if isinstance(file, str):
-            with open(file, newline="") as file:
-                dict_obj = csv.DictReader(file)
+        if isinstance(food_file, str):
+            with open(food_file, newline="") as food_file:
+                dict_obj = csv.DictReader(food_file)
                 for row in dict_obj:
                     the_list.append(row)
                 return import_function()
         else:
-            dict_obj = csv.DictReader(file)
+            dict_obj = csv.DictReader(food_file)
             for row in dict_obj:
                 the_list.append(row)
-                foods_only.append(row[food])
+                foods_only.append(row[food_item])
             return import_function()
 
     def print_foods(self):
@@ -137,7 +137,8 @@ class Water:
 
     def display_tips(self, file, category, tip1, tip2=None, tip3=None, tip4=None, tip5=None):
         """Displays all applicable tips to improve the user's water footprints.
-        IMPORTANT: argument for parameter (title of the csv file which has categories listed) should be same for all imported files"""
+        IMPORTANT: argument for parameter (title of the csv file which has categories listed) should be same for all
+        imported files"""
         tip_dicts = []  # To contain [{category:"", "tip1: "..}, {category: "", "tip1": ..}..]
         category_tips = {}  # To contain {category: {tip1: "", tip2: "" ..}..}
         obj = csv.DictReader(file)

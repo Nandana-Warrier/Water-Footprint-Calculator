@@ -50,7 +50,7 @@ class Water:
         self.period = period
         self.food_dict = {}  # Dictionary of Food with values being dicts themselves of characteristics
         self.average = average  # the value of average is stored here
-        self.household_members = household_members
+        self.house_members = household_members
         self.user_foods = []  # All foods that the users added should be stored here
         self.user_wfs = []  # The water footprints of the users should be stored here. Sum is to be calculated from
         self.user_improvements = set({})  # This set has all tips for the user to improve their water footprint
@@ -133,11 +133,12 @@ class Water:
 
     def calculate_food_wf(self):
         """Calculates the total water footprint of the people in the household"""
-        return f"Your water footprint is {sum(self.user_wfs) * self.household_members} in {self.unit} per {self.period}."
+        return f"Your water footprint is {sum(self.user_wfs) * self.house_members} in {self.unit} per {self.period}."
 
     def display_tips(self, file, category, tip1, tip2=None, tip3=None, tip4=None, tip5=None):
         """Displays all applicable tips to improve the user's water footprints.
-        IMPORTANT: argument for parameter (title of the csv file which has categories listed) should be same for all imported files"""
+        IMPORTANT: argument for parameter (title of the csv file which has categories listed) should be same for all
+        imported files"""
         tip_dicts = []  # To contain [{category:"", "tip1: "..}, {category: "", "tip1": ..}..]
         category_tips = {}  # To contain {category: {tip1: "", tip2: "" ..}..}
         obj = csv.DictReader(file)
