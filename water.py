@@ -2,6 +2,21 @@ import csv
 import re
 
 
+def combine_keys_with_same_values(dictionary):
+    new_dict = {}
+    for key in dictionary:
+        keys = []
+        for key2 in dictionary:
+            if dictionary[key] == dictionary[key2]:
+                keys.append(key2)
+        if len(keys) == 1:
+            new_dict[key] = dictionary[key]
+        else:
+            new_dict[tuple(keys)] = dictionary[key]
+
+    return new_dict
+
+
 def format_data(data, replace_spaces):
     if replace_spaces:
         data = data.replace(" ", "")
@@ -79,7 +94,7 @@ class Water:
 
     def add_food_item(self, food, wf, times):
         """Adds the water footprint of the food item in a list of food water footprints"""
-        self.user_wfs.append(wf*times)
+        self.user_wfs.append(wf * times)
         self.user_foods.append(food)
         print(f"{food} added")
 
@@ -135,22 +150,29 @@ class Water:
             i += 1
 
         # To check all the tips that apply to the user through self.user_foods
-        foods = []
+        foods = {}
         for food in self.user_foods:
-            for c in category_tips:
-                if self.food_dict[food][category] == c:
-                    foods.append(food)
-                    for tip in [tip1, tip2, tip3, tip4, tip5]:
-                        if tip is not None:
-                            tip_value = category_tips[c].get(tip)
-                            if tip_value is not None:  # Check if the tip exists in the dictionary
-                                self.user_improvements.add(tip_value)
-        print("\nSince you chose: ")
-        for food in foods:
-            print(f"- {food}")
-        print("\n")
-        for tip in self.user_improvements:
-            print(f"- {tip}")
+            for tip_category in category_tips:
+                if self.food_dict[food][category] == format_data(tip_category, True):
+                    foods[food] = category_tips[tip_category]
+
+        self.user_improvements = combine_keys_with_same_values(foods)
+
+        for key in self.user_improvements:
+            print("\nSince you have added: ")
+            if isinstance(key, tuple):
+                for element in key:
+                    print(f"• {element}")
+            else:
+                print(f"• {key}")
+
+            print("\nKeep in mind the following:\n")
+
+            for tip in [tip1, tip2, tip3, tip4, tip5]:
+                if tip is not None:
+                    the_tip = f" {self.user_improvements[key][tip]}"
+                    if the_tip != "" and the_tip != " ":
+                        print(f"- {self.user_improvements[key][tip]}")
 
     # TODO: Create an asking for explanations for the water footprint of each item that the user consumes.
 
