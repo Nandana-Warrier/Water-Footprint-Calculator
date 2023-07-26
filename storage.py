@@ -1,4 +1,4 @@
-from water import format_data
+from food import format_data
 import csv
 
 data_list = ["Formatted", self.unit, "Serving", "Category", "Explanation", "Other"]
