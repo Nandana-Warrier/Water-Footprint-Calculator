@@ -64,3 +64,4 @@ class Tips:
                         print(f"\n➢ {self.user_improvements[key][tip]}")
 
     # TODO: Add more categories and tips. Improve user interface in general
+    # I am adding this comment and committing to see whether it appears in the master branch
