@@ -1,14 +1,16 @@
-from water import *
+from food import *
+from tips import *
 
 input("Welcome to the water footprint calculator!")
 input("This program is just to give you an idea of how much water it takes for making the foods you may have been "
       "taking without a second thought. ")
 
-current_user = Water('week')
-foods = current_user.food_dict = current_user.import_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
-                                                              serving="Serving Size", category="Category")
+user_food = Food('week')
+user_food_tips = Tips()
+foods = user_food.food_dict = user_food.import_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
+                                                        serving="Serving Size", category="Category")
 print("Here are the list of food items: ")
-print(current_user.print_foods())
+print(user_food.print_foods())
 
 end = False
 
@@ -20,13 +22,13 @@ while not end:
     Type here: """)
     food = format_data(user_input, True)
     if food == "list":
-        current_user.print_foods()
+        user_food.print_foods()
     elif food == "mylist":
-        print(current_user.user_foods)
+        print(user_food.user_foods)
     elif food == "end":
         end = True
     else:
-        items = current_user.check_food_item(user_input)
+        items = user_food.check_food_item(user_input)
         if isinstance(items, dict):
             times = ""
             while not isinstance(times, float) and not isinstance(times, int):
@@ -36,15 +38,15 @@ while not end:
                     times = float(times)
                 except ValueError:
                     print(f"That is not a number. Please try again")
-            current_user.add_food_item(items['food'], items['wf'], times)
+            user_food.add_food_item(items['food'], items['wf'], times)
 
     print("\n")
 
-print(current_user.calculate_food_wf())
+print(user_food.calculate_food_wf())
 
 want_tips = input("Would you like some tips to improve your water footprint through better food habits? Type yes or "
                   "no: ")
 if want_tips == "yes":
     with open("Tips for Categories.csv") as file:
-        current_user.display_tips(file, "Category", "Tip1", "Tip2")
+        user_food_tips.display_tips(file, "Category", "Tip1", "Tip2")
 input("\nThank you for using this water footprint calculator! Press input to exit: ")
