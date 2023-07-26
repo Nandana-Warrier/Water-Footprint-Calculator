@@ -5,12 +5,13 @@ input("Welcome to the water footprint calculator!")
 input("This program is just to give you an idea of how much water it takes for making the foods you may have been "
       "taking without a second thought. ")
 
-user_food = Food('week')
-user_food_tips = Tips()
-foods = user_food.food_dict = user_food.import_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
-                                                        serving="Serving Size", category="Category")
+food_obj = Food('week')
+food_tips_obj = Tips(all_items=food_obj.food_dict, user_items=food_obj.user_foods)
+foods = food_obj.food_dict = food_obj.use_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
+                                                   serving="Serving Size", category="Category")
+
 print("Here are the list of food items: ")
-print(user_food.print_foods())
+print(food_obj.print_foods())
 
 end = False
 
@@ -22,13 +23,13 @@ while not end:
     Type here: """)
     food = format_data(user_input, True)
     if food == "list":
-        user_food.print_foods()
+        food_obj.print_foods()
     elif food == "mylist":
-        print(user_food.user_foods)
+        print(food_obj.user_foods)
     elif food == "end":
         end = True
     else:
-        items = user_food.check_food_item(user_input)
+        items = food_obj.check_food_item(user_input)
         if isinstance(items, dict):
             times = ""
             while not isinstance(times, float) and not isinstance(times, int):
@@ -38,15 +39,16 @@ while not end:
                     times = float(times)
                 except ValueError:
                     print(f"That is not a number. Please try again")
-            user_food.add_food_item(items['food'], items['wf'], times)
+            food_obj.add_food_item(items['food'], items['wf'], times)
 
     print("\n")
 
-print(user_food.calculate_food_wf())
+print(food_obj.calculate_food_wf())
 
 want_tips = input("Would you like some tips to improve your water footprint through better food habits? Type yes or "
                   "no: ")
 if want_tips == "yes":
     with open("Tips for Categories.csv") as file:
-        user_food_tips.display_tips(file, "Category", "Tip1", "Tip2")
+        food_tips_obj.import_tips(file, "Category", "Tip1", "Tip2")
+        food_tips_obj.display_tips("\nSince you have chosen:", "\nKeep in mind the following:")
 input("\nThank you for using this water footprint calculator! Press input to exit: ")

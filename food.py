@@ -1,4 +1,3 @@
-import csv
 from water_library import *
 
 
@@ -11,10 +10,10 @@ class Food:
         self.house_members = household_members
         self.user_foods = []  # All foods that the users added should be stored here
         self.user_wfs = []  # The water footprints of the users should be stored here. Sum is to be calculated from
-        self.user_improvements = set({})  # This set has all tips for the user to improve their water footprint
 
-    def import_food_csv(self, file, food, unit, serving=None, category=None, explanation=None, other=None):
-        """Returns a list of dictionaries of food items and their characteristics as individual dictionaries"""
+    def use_food_csv(self, file, food, unit, serving=None, category=None, explanation=None, other=None):
+        """Returns a list of dictionaries of food items and values being their characteristics as individual
+        dictionaries"""
 
         self.unit = unit
         the_list = []
@@ -23,26 +22,19 @@ class Food:
         def import_function():
             """Returns food_dict with food name as keys and dictionaries of its characteristics as values."""
             in_list = create_value_dict(["Formatted", serving, self.unit, category, explanation, other],
-                                        the_list, True)
+                                        the_list, True, "Formatted")
             i = 0
-            for d in the_list:
+            for _ in the_list:
                 value_dict = in_list[i]
                 self.food_dict[the_list[i][food]] = value_dict
                 i += 1
             return self.food_dict
 
-        if isinstance(file, str):
-            with open(file, newline="") as file:
-                dict_obj = csv.DictReader(file)
-                for row in dict_obj:
-                    the_list.append(row)
-                return import_function()
-        else:
-            dict_obj = csv.DictReader(file)
-            for row in dict_obj:
-                the_list.append(row)
-                foods_only.append(row[food])
-            return import_function()
+        dict_obj = import_csv(file)
+        for row in dict_obj:
+            the_list.append(row)
+            foods_only.append(row[food])
+        return import_function()
 
     def print_foods(self):
         i = 1
@@ -70,7 +62,6 @@ class Food:
                     food = f
                     break
                 i += 1
-
         # Finding user input from food_dict and turning user input to actual key in food_dict.
         for f in self.food_dict:
             if self.food_dict[f]["Formatted"] == food:
