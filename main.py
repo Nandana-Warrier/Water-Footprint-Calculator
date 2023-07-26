@@ -49,5 +49,5 @@ want_tips = input("Would you like some tips to improve your water footprint thro
                   "no: ")
 if want_tips == "yes":
     food_tips_obj.import_tips("Tips for Categories.csv", "Category", "Tip1", "Tip2")
-    food_tips_obj.display_tips("\nSince you have chosen:", "\nKeep in mind the following:")
+    food_tips_obj.display_tips("\nSince you have chosen:", "\nKeep in mind that:")
 input("\nThank you for using this water footprint calculator! Press input to exit: ")

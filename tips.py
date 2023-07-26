@@ -56,10 +56,8 @@ class Tips:
             print(message_before_tips)
 
             for tip in self.user_improvements[key]:
-                if tip is not None:
-                    # To check if the_tip is not None
-                    the_tip = f" {self.user_improvements[key][tip]}"
-                    if the_tip != "" and the_tip != " ":
-                        print(f"\n➢ {self.user_improvements[key][tip]}")
+                the_tip = f" {self.user_improvements[key][tip]}"
+                if the_tip != "" and the_tip != " ":
+                    print(f"\n➢ {self.user_improvements[key][tip]}")
 
     # TODO: Add more categories and tips. Improve user interface in general
