@@ -1,50 +1,8 @@
 import csv
-import re
+from water_library import *
 
 
-def combine_keys_with_same_values(dictionary):
-    new_dict = {}
-    for key in dictionary:
-        keys = []
-        for key2 in dictionary:
-            if dictionary[key] == dictionary[key2]:
-                keys.append(key2)
-        if len(keys) == 1:
-            new_dict[key] = dictionary[key]
-        else:
-            new_dict[tuple(keys)] = dictionary[key]
-
-    return new_dict
-
-
-def format_data(data, replace_spaces):
-    if replace_spaces:
-        data = data.replace(" ", "")
-    if data.isdigit():
-        return int(data)
-    else:
-        parts = re.split(r"/", data)  # Split data using forward slash
-        for part in parts:
-            if "," in part:  # Check if any part contains a comma
-                return ", ".join(parts)  # Join parts with a comma and a space
-        return str(data).lower()
-
-
-def create_value_dict(pros_keys, dict_list, replace_spaces):
-    """Returns list of dictionaries with characteristics to be used as values for another dictionary"""
-    value_list = []
-    for d in dict_list:
-        a_dict = {}
-        for key in pros_keys:
-            for k in d:
-                if k == key or key == "Formatted":
-                    break
-            a_dict.update({key: format_data(d[k], replace_spaces)} if key is not None else {})
-        value_list.append(a_dict)
-    return value_list
-
-
-class Water:
+class Food:
     def __init__(self, period, average=0, household_members=1):
         self.unit = ""
         self.period = period
@@ -134,46 +92,6 @@ class Water:
     def calculate_food_wf(self):
         """Calculates the total water footprint of the people in the household"""
         return f"Your water footprint is {sum(self.user_wfs) * self.house_members} in {self.unit} per {self.period}."
-
-    def display_tips(self, file, category, tip1, tip2=None, tip3=None, tip4=None, tip5=None):
-        """Displays all applicable tips to improve the user's water footprints.
-        IMPORTANT: argument for parameter (title of the csv file which has categories listed) should be same for all
-        imported files"""
-        tip_dicts = []  # To contain [{category:"", "tip1: "..}, {category: "", "tip1": ..}..]
-        category_tips = {}  # To contain {category: {tip1: "", tip2: "" ..}..}
-        obj = csv.DictReader(file)
-        for row in obj:
-            tip_dicts.append(row)
-        value_dicts = create_value_dict([category, tip1, tip2, tip3, tip4, tip5], tip_dicts, False)
-        i = 0
-        for d in value_dicts:
-            category_tips[tip_dicts[i][category]] = value_dicts[i]
-            i += 1
-
-        # To check all the tips that apply to the user through self.user_foods
-        foods = {}
-        for food in self.user_foods:
-            for tip_category in category_tips:
-                if self.food_dict[food][category] == format_data(tip_category, True):
-                    foods[food] = category_tips[tip_category]
-
-        self.user_improvements = combine_keys_with_same_values(foods)
-
-        for key in self.user_improvements:
-            print("\nSince you have added: ")
-            if isinstance(key, tuple):
-                for element in key:
-                    print(f"• {element}")
-            else:
-                print(f"• {key}")
-
-            print("\nKeep in mind the following:\n")
-
-            for tip in [tip1, tip2, tip3, tip4, tip5]:
-                if tip is not None:
-                    the_tip = f" {self.user_improvements[key][tip]}"
-                    if the_tip != "" and the_tip != " ":
-                        print(f"- {self.user_improvements[key][tip]}")
 
     # TODO: Create an asking for explanations for the water footprint of each item that the user consumes.
 
