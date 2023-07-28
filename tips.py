@@ -33,34 +33,56 @@ class Tips:
             self.category_tips[tip_dicts[i][category]] = value_dicts[i]
             i += 1
 
-    def create_user_improvements(self):
+    def create_user_improvements(self, all_category=None):
+        """Parameters:
+                all_category: Title of category where general tips are stored"""
         items = {}
         for item in self.user_items:
             for tip_category in self.category_tips:
                 if self.all_items[item][self.category_title] == format_data(tip_category, True):
                     items[item] = self.category_tips[tip_category]
+        if all_category:
+            items["all"] = self.category_tips[all_category]
 
         self.user_improvements = combine_keys_with_same_values(items)
 
-    def display_tips(self, message_before_foods, message_before_tips):
-        self.create_user_improvements()
+    def display_tips(self, message_before_tips=None, message_before_items=None, all_category=None, general_message=None):
+        """Parameters:
+                message_before_tips: The message to be displayed before printing tips of a category
+                message_before_items: The message to be displayed before printing items of a category
+                all_category: Title of category where general tips are stored
+                general_message: The message to be displayed before printing the general tips
+                """
+        self.create_user_improvements(all_category)
+
         # To check all the tips that apply to the user through self.user_items
-        if len(self.user_improvements) == 0:
+
+        def print_tips(k, message=None):
+            print(message) if message else None
+            for tip in self.user_improvements[k]:
+                the_tip = f" {self.user_improvements[k][tip]}"
+                if the_tip != "" and the_tip != " ":
+                    print(f"➢ {self.user_improvements[k][tip]}")
+
+        if len(self.user_improvements) == 1:
             print("\nYour food choices have a reasonable water footprint. Keep up the good work!")
+            print_tips(all_category, general_message)
         else:
-            for key in self.user_improvements:
-                print(message_before_foods)
-                if isinstance(key, tuple):
-                    for element in key:
-                        print(f"• {element}")
-                else:
-                    print(f"• {key}")
-
-                print(message_before_tips)
-
-                for tip in self.user_improvements[key]:
-                    the_tip = f" {self.user_improvements[key][tip]}"
-                    if the_tip != "" and the_tip != " ":
-                        print(f"\n➢ {self.user_improvements[key][tip]}")
+            if message_before_items:
+                for key in self.user_improvements:
+                    if key == all_category:
+                        message_before_tips = general_message
+                    else:
+                        print(message_before_items)
+                        if isinstance(key, tuple):
+                            for element in key:
+                                print(f"• {element}")
+                        else:
+                            print(f"• {key}")
+                    print_tips(key, message_before_tips)
+            else:
+                print(message_before_items)
+                for key in self.user_improvements:
+                    print_tips(key)
 
     # TODO: Add more categories and tips. Improve user interface in general
