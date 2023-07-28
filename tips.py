@@ -45,19 +45,22 @@ class Tips:
     def display_tips(self, message_before_foods, message_before_tips):
         self.create_user_improvements()
         # To check all the tips that apply to the user through self.user_items
-        for key in self.user_improvements:
-            print(message_before_foods)
-            if isinstance(key, tuple):
-                for element in key:
-                    print(f"• {element}")
-            else:
-                print(f"• {key}")
+        if len(self.user_improvements) == 0:
+            print("\nYour food choices have a reasonable water footprint. Keep up the good work!")
+        else:
+            for key in self.user_improvements:
+                print(message_before_foods)
+                if isinstance(key, tuple):
+                    for element in key:
+                        print(f"• {element}")
+                else:
+                    print(f"• {key}")
 
-            print(message_before_tips)
+                print(message_before_tips)
 
-            for tip in self.user_improvements[key]:
-                the_tip = f" {self.user_improvements[key][tip]}"
-                if the_tip != "" and the_tip != " ":
-                    print(f"\n➢ {self.user_improvements[key][tip]}")
+                for tip in self.user_improvements[key]:
+                    the_tip = f" {self.user_improvements[key][tip]}"
+                    if the_tip != "" and the_tip != " ":
+                        print(f"\n➢ {self.user_improvements[key][tip]}")
 
     # TODO: Add more categories and tips. Improve user interface in general
