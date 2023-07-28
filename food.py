@@ -42,12 +42,6 @@ class Food:
             print(f"{i}. {food}")
             i += 1
 
-    def add_food_item(self, food, wf, times):
-        """Adds the water footprint of the food item in a list of food water footprints"""
-        self.user_wfs.append(wf * times)
-        self.user_foods.append(food)
-        print(f"{food} added")
-
     def check_food_item(self, user_input):
         """Returns food and wf as a dict with same keys among updating the object attributes and other things"""
 
@@ -80,13 +74,16 @@ class Food:
         except KeyError:
             print(f"{user_input} is out of range or not in our database. Maybe you misspelled?")
 
+    def add_food_item(self, food, wf, times):
+        """Adds the water footprint of the food item in a list of food water footprints"""
+        self.user_wfs.append(wf * times)
+        self.user_foods.append(food)
+        print(f"{food} added")
+
     def calculate_food_wf(self):
         """Calculates the total water footprint of the people in the household"""
         return f"Your water footprint is {sum(self.user_wfs) * self.house_members} in {self.unit} per {self.period}."
 
     # TODO: Create an asking for explanations for the water footprint of each item that the user consumes.
+    # TODO: Add a meal_ingredients function
 
-    def avg_compare(self):
-        """ TODO: Create a method that compares the actual water footprint with the average and returns appropriate
-        tips for each diet"""
-        pass
