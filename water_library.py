@@ -47,7 +47,7 @@ def create_value_dict(pros_keys, dict_list, replace_spaces, formatted_title=None
             for k in d:
                 if k == key or key == formatted_title:
                     break
+            # noinspection PyUnboundLocalVariable
             a_dict.update({key: format_data(d[k], replace_spaces)} if key is not None else {})
         value_list.append(a_dict)
     return value_list
-

@@ -86,4 +86,3 @@ class Food:
 
     # TODO: Create an asking for explanations for the water footprint of each item that the user consumes.
     # TODO: Add a meal_ingredients function
-
