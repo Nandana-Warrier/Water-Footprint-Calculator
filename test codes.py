@@ -135,26 +135,17 @@ food_dict = {'Chocolate': {'Formatted': 'chocolate', 'Serving Size': 4, 'Litres'
              'Celery': {'Formatted': 'celery', 'Serving Size': 4, 'Litres': 23, 'Category': 'produce'},
              'Tomatoes': {'Formatted': 'tomatoes', 'Serving Size': 4, 'Litres': 23, 'Category': 'produce'},
              'Turnips': {'Formatted': 'turnips', 'Serving Size': 4, 'Litres': 23, 'Category': 'produce'}}
-tip_dict = {'meat': {'Tip1': 'Choose Better Meat: Choose pasture raised meat as much as possible as despite '
-                             'negligible differences between water footprints, their impact on water resources are '
-                             'different:\n - Pasture-fed (Green Water Footprint): Uses forage as feed grown from '
-                             'rainwater and manure is used as fertilisers.\n - Conventional (Blue Water Footprint): '
-                             'Uses feed like corn that need irrigation and animal waste is turned into manure lagoons '
-                             'that can pollute surrounding waters.', 'Tip2': 'Eat Less Meat: On average, '
-                                                                             'the water footprint of a vegan or '
-                                                                             'vegetarian is around half that of a '
-                                                                             'meat eater. Eating less meat and '
-                                                                             'replacing it with less water-intensive '
-                                                                             'plant-based alternatives can reduce '
-                                                                             'water footprints'}, 'produce': {
-    'Tip1': "Choose Organic:\n - Organic farms usually don't use pesticides or synthetic fertilisers which could run "
-            "off of farm fields and pollute nearby waters. \n - Soils at organic farms tend to be much better at "
-            "retaining nutrients and moisture, which reduces the risk of groundwater pollution.\n - Buying products "
-            "grown organically helps support farms that are making big efforts to reduce water pollution, which means "
-            "those products have a smaller gray water footprint.",
-    'Tip2': ''}, 'processed foods': {
-    'Tip1': 'In addition to growing the ingredients, processed foods require water for things like cleaning the food '
-            'and machinery, pre-cooking the food, producing fuel for delivery and making packaging materials. Cutting '
-            'back and replacing packaged foods with locally grown, organic alternatives can make a significant impact '
-            'on your water footprint.',
-    'Tip2': ''}}
+tip_dict = {'all': {
+    'Tip1': 'Waste less:\n -  Because it takes a lot of water to get food to people’s plates, wasted food also means wasted water.\n -  The easiest and perhaps most effective thing to do is to plan out meals before heading to the store.',
+    'Tip2': 'choose local food:\n - supporting local food production can help preserve water resources by keeping water usage for growing food within the local area. this reduces the need for transporting water across long distances.'
+    },
+    'meat': {
+        'Tip1': 'Choose Better Meat: Choose pasture raised meat as much as possible as despite negligible differences between water footprints, their impact on water resources are different:\n - Pasture-fed (Green Water Footprint): Uses forage as feed grown from rainwater and manure is used as fertilisers.\n - Conventional (Blue Water Footprint): Uses feed like corn that need irrigation and animal waste is turned into manure lagoons that can pollute surrounding waters.',
+        'Tip2': 'Eat Less Meat: On average, the water footprint of a vegan or vegetarian is around half that of a meat eater. Eating less meat and replacing it with less water-intensive plant-based alternatives can reduce water footprints'
+    },
+    'produce': {
+        'Tip1': "Choose Organic:\n - Organic farms usually don't use pesticides or synthetic fertilisers which could run off of farm fields and pollute nearby waters. \n - Soils at organic farms tend to be much better at retaining nutrients and moisture, which reduces the risk of groundwater pollution.\n - Buying products grown organically helps support farms that are making big efforts to reduce water pollution, which means those products have a smaller gray water footprint."
+    },
+    'processed foods': {
+        'Tip1': 'In addition to growing the ingredients, processed foods require water for things like cleaning the food and machinery, pre-cooking the food, producing fuel for delivery and making packaging materials. Cutting back and replacing packaged foods with locally grown, organic alternatives can make a significant impact on your water footprint.'
+    }}
