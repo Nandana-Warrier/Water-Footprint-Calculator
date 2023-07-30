@@ -2,6 +2,7 @@ import csv
 
 
 def import_csv(f):
+    """Returns the file regardless of whether the argument is the file itself or the file name in the same folder."""
     if isinstance(f, str):
         file = open(f)
     else:
@@ -10,6 +11,7 @@ def import_csv(f):
 
 
 def combine_keys_with_same_values(dictionary):
+    """Returns a new dictionary after combining keys with the same values into a single key-value pair using a tuple as the key."""
     new_dict = {}
     for key in dictionary:
         keys = []
@@ -25,6 +27,13 @@ def combine_keys_with_same_values(dictionary):
 
 
 def format_data(data, replace_spaces, keep_case=False):
+    """
+    Formats data according to the needs of the Food, Tips classes.
+
+        Parameters:
+            data: The data to be formatted
+            replace_spaces (bool): True to remove spaces of the formatted data, and False to keep the spacing.
+            keep_case: True to keep the capitalization, False to change the formatted data to lowercase."""
     if replace_spaces:
         data = data.replace(" ", "")
     if data.isdigit():
@@ -39,7 +48,16 @@ def format_data(data, replace_spaces, keep_case=False):
 
 
 def create_value_dict(prospective_keys, dict_list, replace_spaces, keep_case=False, formatted_title=None):
-    """Returns list of dictionaries with characteristics to be used as values for another dictionary"""
+    """
+    Returns list of dictionaries with characteristics to be used as values for another dictionary.
+
+        Parameters:
+            prospective_keys: The list of elements to be used as keys for each item in the value_dict. The order should be maintained.
+            dict_list: The list of dictionaries from which the values for the value_dict are to be extracted. The keys should match the prospective keys, unless for formatted versions.
+            replace_spaces: True to remove spaces of values, and False to keep the spacing.
+            keep_case: True keep the capitalization in each value, False to change to lowercase.
+            formatted_title: An extra key value pair in the value_dict, which is an formatted version of the key for identification purposes.
+        """
     value_list = []
     for d in dict_list:
         a_dict = {}
@@ -47,36 +65,32 @@ def create_value_dict(prospective_keys, dict_list, replace_spaces, keep_case=Fal
             for k in d:
                 if k == key or key == formatted_title:
                     break
-            # noinspection PyUnboundLocalVariable
             a_dict.update({key: format_data(d[k], replace_spaces, keep_case)} if key is not None else {})
         value_list.append(a_dict)
     return value_list
 
 
 class Food:
-    def __init__(self, period, average=0, household_members=1):
+    def __init__(self, period, household_members=1):
         """
         Initialize the Food class.
 
         Parameters:
             period (str): The time period for which the water footprint is calculated (e.g., 'week', 'day').
-            average (int or float, optional): The average value used in calculations.
             household_members (int, optional): The number of members in the household.
         """
         # Keys of dictionaries in self.food_dict
-        self.unit = ""
-        self.serving = None
-        self.category = None
-        self.info = None
-        self.other = None
+        self.unit = ""  # Unit of water footprint (e.g., 'Litres' or 'Gallons')
+        self.serving = None  # Title of the column containing serving size data
+        self.category = None  # Title of the column containing food categories
+        self.info = None  # Title of the column containing details of water footprints of food items
+        self.other = None  # Title of an additional column containing other information
 
-        self.period = period
-        self.food_dict = {}  # Dictionary of Food with values being dicts themselves of characteristics
-        self.average = average  # The value of average is stored here
-        self.household_members = household_members
-        self.user_foods = {}  # All foods that the users added should be stored here with the values being their
-        # water footprints
-        self.user_wfs = []  # The water footprints of the users should be stored here. Sum is to be calculated from
+        self.period = period  # Time period for water footprint calculation
+        self.food_dict = {}  # Dictionary of food items with dictionaries of characteristics as values
+        self.household_members = household_members  # Number of members in the household
+        self.user_foods = {}  # Dictionary to store user-added food items with their water footprints
+        self.user_wfs = []  # List to store water footprints of user-added food items
 
     def load_food_csv(self, file, food, unit, serving=None, category=None, info=None, other=None):
         """
@@ -91,6 +105,7 @@ class Food:
             info (str, optional): The title of the column containing details of water footprints of food items.
             other (str, optional): The title of additional column containing other information.
         """
+        # Set class variables to input values
         self.unit = unit
         self.serving = serving
         self.category = category
@@ -130,6 +145,12 @@ class Food:
             i += 1
 
     def find_food_item(self, food):
+        """
+        Finds and returns the correct food item key based on user input.
+
+        Parameters:
+            food (str or int): The user input for food item (name or serial number).
+        """
         if isinstance(food, int):
             i = 1
             for f in self.food_dict:
@@ -146,13 +167,10 @@ class Food:
 
     def check_food_item(self, user_input):
         """
-        Check if the user input corresponds to a valid food item.
+        Check if the user input corresponds to a valid food item and returns dictionary containing the food name, water footprint, and serving size.
 
         Parameters:
             user_input (str or int): The user input for food item (name or serial number).
-
-        Returns:
-            dict or None: A dictionary containing food and water footprint details if the food item is valid.
         """
         food = user_input
         food = format_data(food, True)  # Formatting argument to number or changing it to lowercase and removing spaces
@@ -186,6 +204,12 @@ class Food:
         print(f"\n{food} added. ")
 
     def print_info(self, food):
+        """
+        Print information about a food item.
+
+        Parameters:
+            food (str): The name of the food item.
+        """
         return self.food_dict[food][self.info]
 
     def calculate_food_wf(self):
@@ -299,151 +323,7 @@ class Tips:
                 print_tips(key)
 
 
-class Food:
-    def __init__(self, period, average=0, household_members=1):
-        """
-        Initialize the Food class.
-
-        Parameters:
-            period (str): The time period for which the water footprint is calculated (e.g., 'week', 'day').
-            average (int or float, optional): The average value used in calculations.
-            household_members (int, optional): The number of members in the household.
-        """
-        # Keys of dictionaries in self.food_dict
-        self.unit = ""
-        self.serving = None
-        self.category = None
-        self.info = None
-        self.other = None
-
-        self.period = period
-        self.food_dict = {}  # Dictionary of Food with values being dicts themselves of characteristics
-        self.average = average  # The value of average is stored here
-        self.household_members = household_members
-        self.user_foods = {}  # All foods that the users added should be stored here with the values being their
-        # water footprints
-        self.user_wfs = []  # The water footprints of the users should be stored here. Sum is to be calculated from
-
-    def load_food_csv(self, file, food, unit, serving=None, category=None, info=None, other=None):
-        """
-        Returns a list of dictionaries of food items and values being their characteristics as individual dictionaries.
-
-        Parameters:
-            file (str): The CSV file containing the food data.
-            food (str): The title of the column containing food names.
-            unit (str): The unit of water footprint (e.g., 'Litres' or 'Gallons').
-            serving (str, optional): The title of the column containing serving size data.
-            category (str, optional): The title of the column containing food categories.
-            info (str, optional): The title of the column containing details of water footprints of food items.
-            other (str, optional): The title of additional column containing other information.
-        """
-        self.unit = unit
-        self.serving = serving
-        self.category = category
-        self.info = info
-        self.other = other
-
-        the_list = []
-        foods_only = []
-
-        def import_function():
-            """Returns food_dict with food name as keys and dictionaries of its characteristics as values."""
-            in_list = create_value_dict(
-                prospective_keys=["Formatted", self.serving, self.unit, self.category, self.other],
-                dict_list=the_list, replace_spaces=True, formatted_title="Formatted")
-            i = 0
-            for _ in the_list:
-                value_dict = in_list[i]
-                if self.info:
-                    value_dict[self.info] = the_list[i][self.info]
-                self.food_dict[the_list[i][food]] = value_dict
-                i += 1
-            return self.food_dict
-
-        dict_obj = import_csv(file)
-        for row in dict_obj:
-            the_list.append(row)
-            foods_only.append(row[food])
-        return import_function()
-
-    def display_available_foods(self):
-        """
-        Print the list of available food items.
-        """
-        i = 1
-        for food in self.food_dict:
-            print(f"{i}. {food}")
-            i += 1
-
-    def find_food_item(self, food):
-        if isinstance(food, int):
-            i = 1
-            for f in self.food_dict:
-                if i == food:
-                    food = f
-                    break
-                i += 1
-        else:
-            food = format_data(food, True)
-            for f in self.food_dict:
-                if self.food_dict[f]["Formatted"] == food:
-                    food = f
-        return food
-
-    def check_food_item(self, user_input):
-        """
-        Check if the user input corresponds to a valid food item.
-
-        Parameters:
-            user_input (str or int): The user input for food item (name or serial number).
-
-        Returns:
-            dict or None: A dictionary containing food and water footprint details if the food item is valid.
-        """
-        food = user_input
-        food = format_data(food, True)  # Formatting argument to number or changing it to lowercase and removing spaces
-
-        food = self.find_food_item(food)
-
-        # Checking if user has already added the food item.
-        if food in self.user_foods.keys():
-            print(f"{food} already added.")
-            return
-
-        # Adding the food to users lists of foods and water footprints
-        try:
-            wf = float(self.food_dict[food][self.unit])
-            serving = self.food_dict[food][self.serving]
-            return {'food': food, 'wf': wf, 'Serving Size': serving}
-        except KeyError:
-            print(f"{user_input} is out of range or not in our database. Maybe you misspelled?")
-
-    def add_food_item(self, food, wf, times):
-        """
-        Add the water footprint of the food item to the list of food water footprints.
-
-        Parameters:
-            food (str): The name of the food item.
-            wf (float): The water footprint of the food item.
-            times (float): The number of times the food item is consumed.
-        """
-        self.user_foods[food] = wf
-        self.user_wfs.append(wf * times)
-        print(f"\n{food} added. ")
-
-    def print_info(self, food):
-        return self.food_dict[food][self.info]
-
-    def calculate_food_wf(self):
-        """
-        Calculate the total water footprint of the people in the household.
-
-        Returns:
-            str: A string representing the calculated water footprint.
-        """
-        return f"Your water footprint is {sum(self.user_wfs) * self.household_members} in {self.unit} per {self.period}."
-
-#DATA
+# DATA
 
 food_dict = {'Chocolate': {'Formatted': 'chocolate', 'Serving Size': 4, 'Litres': 1953, 'Category': 'other',
                            'Information': 'The water footprint of chocolate varies depending on where and how the cocoa (or cacao) trees and other ingredients were grown. Chocolate ingredients are almost entirely rainfed (green water), receive little irrigation (blue water) and require some fertilizer and pesticides that cause water pollution (grey water). There is also water pollution associated with processing, packaging and transporting chocolate.'},
@@ -704,23 +584,37 @@ tip_dict = {'all': {
         'Tip1': 'Reducing the consumption of milled flours and opting for whole grains like corn can contribute to lowering the water footprint, as processing milled flours requires additional water, while whole grains retain more of their natural water content, leading to more water-efficient food choices.',
         'Tip2': ''}}
 
+
 # MAIN SCRIPT
 
 def welcome_message():
+    """
+    Display a welcome message and introduce the water footprint calculator.
+    """
     print("Welcome to the water footprint calculator!")
     print("This program is designed to give you an idea of how much water it takes to produce the foods you consume.")
     input("Press Enter to continue...")
-    return None
-
 
 
 # Function to display the list of food items
 def display_food_items(food_object):
+    """
+    Display the list of available food items.
+
+    Parameters:
+        food_object (Food): The Food object initialized containing the list of food items.
+    """
     print("Here are the list of food items: ")
     return food_object.display_available_foods()
 
 
 def display_user_foods(food_object):
+    """
+        Display the list of food items added by the user along with their water footprints.
+
+        Parameters:
+            food_object (Food): The Food object containing the user-added food items.
+        """
     i = 1
     for food, wf in food_object.user_foods.items():
         print(f"{i}. {food} ({wf} {food_object.unit})")
@@ -729,6 +623,12 @@ def display_user_foods(food_object):
 
 # Function to get user input for food consumption
 def get_user_food_input(food_object):
+    """
+    Get user input for food consumption and calculate water footprint.
+
+    Parameters:
+        food_object (Food): The Food object to store user input and calculate water footprint.
+    """
     while True:
         user_input = input("""\nWhich foods from the list above do you consume? Type in the name or the serial number. 
         If you want to see the list again, type 'list'. 
@@ -761,12 +661,24 @@ def get_user_food_input(food_object):
 
 # Function to get user input for receiving tips
 def get_tips(tips_object):
+    """
+        Get user input to display tips for improving water footprint.
+
+        Parameters:
+            tips_object (Tips): The Tips object to retrieve and display tips.
+        """
     tips_object.display_tips(item_key="Foods", message_before_items="\nSince you have chosen:",
-                                     general_category="all",
-                                     general_message="\nHere are some general tips to keep in mind: ")
+                             general_category="all",
+                             general_message="\nHere are some general tips to keep in mind: ")
 
 
 def print_tips(tips_object):
+    """
+        Print tips to the user based on their input.
+
+        Parameters:
+            tips_object (Tips): The Tips object containing the user improvements and tips.
+        """
     while True:
         want_tips = input(
             "\nWould you like some tips to improve your water footprint through better food habits? Type yes or no: ")
@@ -781,8 +693,10 @@ def print_tips(tips_object):
             print("That is not a valid input")
 
 
+# Run the water footprint calculator
 welcome_message()
 
+# Initialize the Food object with the provided data
 current_food_object = Food('week')
 current_food_object.food_dict = food_dict
 current_food_object.unit = "Litres"
@@ -790,16 +704,20 @@ current_food_object.serving = "Serving Size"
 current_food_object.category = "Category"
 current_food_object.info = "Information"
 
-
+# Display available food items to the user
 display_food_items(current_food_object)
 
+# Get user input for food consumption
 get_user_food_input(current_food_object)
 
+# Calculate and print the total water footprint for the user
 print(current_food_object.calculate_food_wf())
 
+# Initialize the Tips object with the provided data
 current_tips_object = Tips(all_items_dict=current_food_object.food_dict,
                            selected_items=list(current_food_object.user_foods.keys()))
 current_tips_object.category_tips_dict = tip_dict
 current_tips_object.category_column = "Category"
 
+# Print tips for the user to improve their water footprint
 print_tips(current_tips_object)
