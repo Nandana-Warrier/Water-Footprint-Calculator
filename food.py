@@ -15,17 +15,18 @@ class Food:
         self.unit = ""
         self.serving = None
         self.category = None
-        self.explanation = None
+        self.info = None
         self.other = None
 
         self.period = period
         self.food_dict = {}  # Dictionary of Food with values being dicts themselves of characteristics
         self.average = average  # The value of average is stored here
         self.household_members = household_members
-        self.user_foods = {}  # All foods that the users added should be stored here with the values being their water footprints
+        self.user_foods = {}  # All foods that the users added should be stored here with the values being their
+        # water footprints
         self.user_wfs = []  # The water footprints of the users should be stored here. Sum is to be calculated from
 
-    def load_food_csv(self, file, food, unit, serving=None, category=None, explanation=None, other=None):
+    def load_food_csv(self, file, food, unit, serving=None, category=None, info=None, other=None):
         """
         Returns a list of dictionaries of food items and values being their characteristics as individual dictionaries.
 
@@ -35,13 +36,13 @@ class Food:
             unit (str): The unit of water footprint (e.g., 'Litres' or 'Gallons').
             serving (str, optional): The title of the column containing serving size data.
             category (str, optional): The title of the column containing food categories.
-            explanation (str, optional): The title of the column containing explanations for food items.
+            info (str, optional): The title of the column containing details of water footprints of food items.
             other (str, optional): The title of additional column containing other information.
         """
         self.unit = unit
         self.serving = serving
         self.category = category
-        self.explanation = explanation
+        self.info = info
         self.other = other
 
         the_list = []
@@ -49,11 +50,14 @@ class Food:
 
         def import_function():
             """Returns food_dict with food name as keys and dictionaries of its characteristics as values."""
-            in_list = create_value_dict(prospective_keys=["Formatted", serving, self.unit, category, explanation, other],
-                                        dict_list=the_list, replace_spaces=True, formatted_title="Formatted")
+            in_list = create_value_dict(
+                prospective_keys=["Formatted", self.serving, self.unit, self.category, self.other],
+                dict_list=the_list, replace_spaces=True, formatted_title="Formatted")
             i = 0
             for _ in the_list:
                 value_dict = in_list[i]
+                if self.info:
+                    value_dict[self.info] = the_list[i][self.info]
                 self.food_dict[the_list[i][food]] = value_dict
                 i += 1
             return self.food_dict
@@ -73,6 +77,21 @@ class Food:
             print(f"{i}. {food}")
             i += 1
 
+    def find_food_item(self, food):
+        if isinstance(food, int):
+            i = 1
+            for f in self.food_dict:
+                if i == food:
+                    food = f
+                    break
+                i += 1
+        else:
+            food = format_data(food, True)
+            for f in self.food_dict:
+                if self.food_dict[f]["Formatted"] == food:
+                    food = f
+        return food
+
     def check_food_item(self, user_input):
         """
         Check if the user input corresponds to a valid food item.
@@ -86,18 +105,7 @@ class Food:
         food = user_input
         food = format_data(food, True)  # Formatting argument to number or changing it to lowercase and removing spaces
 
-        # If user input serial number of the food item from the list
-        if isinstance(food, int):
-            i = 1
-            for f in self.food_dict:
-                if i == food:
-                    food = f
-                    break
-                i += 1
-        # Finding user input from food_dict and turning user input to actual key in food_dict.
-        for f in self.food_dict:
-            if self.food_dict[f]["Formatted"] == food:
-                food = f
+        food = self.find_food_item(food)
 
         # Checking if user has already added the food item.
         if food in self.user_foods.keys():
@@ -123,7 +131,10 @@ class Food:
         """
         self.user_foods[food] = wf
         self.user_wfs.append(wf * times)
-        print(f"{food} added")
+        print(f"\n{food} added. ")
+
+    def print_info(self, food):
+        return self.food_dict[food][self.info]
 
     def calculate_food_wf(self):
         """
