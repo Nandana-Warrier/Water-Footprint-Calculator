@@ -27,8 +27,9 @@ Soy burger,4,113,428,processed foods,"Veggie burgers can be made from many diffe
 - There is also pollution associated with manufacturing veggie burgers, including processing, assembly, packaging and transportation."
 Figs,4,98,371,produce,Fig trees thrive in a Mediterranean climate and require regular and substantial irrigation (blue water) to augment the rain (green water) they receive.
 Chicken Eggs,4,98,371,other,"In the US, most layer chickens that produce eggs are raised in ""industrial"" systems where they're given feed made from corn and soybeans. Most feed grains are rainfed (green water) but are increasingly being irrigated (blue water). Chicken (egg) production can cause water pollution (grey water) from large concentrations of animal manure leaching into the soil and from the fertilizer and/or pesticides used to grow feed crops leaching into waterways."
-Cows Milk,4,98,371,processed foods,
-Cheese,4,95,360,processed foods,
+Cheese,4,95,360,processed foods/dairy,"Cheese production can cause pollution (grey water) because of processing, packaging and transportation, and when fertilizer and/or pesticides are used in feed crop production.
+- Dairy cows tend to have long lives in systems where they eat large quantities of grass and feed grain made from corn and soybeans. Feed grains are predominantly rainfed (green water), although in the US, corn and soybean plants are increasingly being irrigated (blue water) in some states. 
+- Dairies can also cause a significant amount of water pollution from manure leaching into waterways."
 Olives,4,90,341,produce,
 Chestnuts,4,83,314,other,
 Oatmeal,4,76,288,processed foods,
