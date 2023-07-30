@@ -33,31 +33,38 @@ class Tips:
         obj = import_csv(file)
         for row in obj:
             tip_dicts.append(row)
-        value_dicts = create_value_dict([tip1, tip2, tip3, tip4, tip5], tip_dicts, False)
+        value_dicts = create_value_dict(prospective_keys=[tip1, tip2, tip3, tip4, tip5], dict_list=tip_dicts, replace_spaces=False, keep_case=True)
         i = 0
         for _ in value_dicts:
             self.category_tips_dict[tip_dicts[i][category]] = value_dicts[i]
             i += 1
         return self.category_tips_dict
 
-    def create_user_improvements(self, all_category=None):
+    def create_user_improvements(self, item_key, all_category=None):
         """
         Create user improvements based on the selected items.
 
         Parameters:
+            item_key (str): The key for the item or tuple of items for the value dict of each category.
+                            self.user_improvements[category][item_key] = item or (item1, item2, item3)
             all_category (str, optional): Title of the category where general tips are stored.
         """
-        items = {}
-        for item in self.selected_items:
-            for tip_category in self.category_tips_dict:
-                if self.all_items[item][self.category_column] == format_data(tip_category, True):
-                    items[item] = self.category_tips_dict[tip_category]
-        if all_category:
-            items["all"] = self.category_tips_dict[all_category]
+        for tip_category in self.category_tips_dict:
+            value_dict = {}
+            item_key_list = []
+            if tip_category == all_category:
+                item_key_list = self.selected_items
+            else:
+                for item in self.selected_items:
+                    item_category = self.all_items[item][self.category_column]
+                    if format_data(tip_category, True) == item_category or format_data(tip_category, True) in item_category:
+                        item_key_list.append(item)
+            if len(item_key_list) != 0:
+                value_dict[item_key] = tuple(item_key_list)
+                value_dict['Tips'] = self.category_tips_dict[tip_category]
+                self.user_improvements[tip_category] = value_dict
 
-        self.user_improvements = combine_keys_with_same_values(items)
-
-    def display_tips(self, message_before_tips=None, message_before_items=None, general_category=None,
+    def display_tips(self, item_key, message_before_tips=None, message_before_items=None, general_category=None,
                      general_message=None):
         """
         Display tips to the user.
@@ -67,35 +74,29 @@ class Tips:
             message_before_items (str, optional): The message to be displayed before printing items of a category.
             general_category (str, optional): Title of the category where general tips are stored.
             general_message (str, optional): The message to be displayed before printing the general tips.
+            item_key : The key to be used to fetch all the items belonging to a category in the user_improvements dictionary.
         """
-        self.create_user_improvements(general_category)
+        self.create_user_improvements(item_key=item_key, all_category=general_category)
 
         def print_tips(k, message=None):
-            print(message) if isinstance(message, str) else print("\n")
-            for tip in self.user_improvements[k]:
-                the_tip = f" {self.user_improvements[k][tip]}"
+            print(message) if isinstance(message, str) else print("")
+            for tip in self.user_improvements[k]['Tips']:
+                the_tip = f" {self.user_improvements[k]['Tips'][tip]}"
                 if the_tip != "" and the_tip != " ":
-                    print(f"➢ {self.user_improvements[k][tip]}")
+                    print(f"➢ {self.user_improvements[k]['Tips'][tip]}")
 
-        if len(self.user_improvements) == 1:
+        if message_before_items:
+            for key in self.user_improvements:
+                if key == general_category:
+                    continue
+                else:
+                    print(message_before_items)
+                    for element in self.user_improvements[key][item_key]:
+                        print(f"• {element}")
+                print_tips(key, message_before_tips)
             print_tips(general_category, general_message)
         else:
-            if message_before_items:
-                for key in self.user_improvements:
-                    if key == general_category:
-                        message_before_tips = general_message
-                    else:
-                        print(message_before_items)
-                        if isinstance(key, tuple):
-                            for element in key:
-                                print(f"• {element}")
-                        else:
-                            print(f"• {key}")
-                    print_tips(key, message_before_tips)
-            else:
-                print(message_before_items)
-                for key in self.user_improvements:
-                    print_tips(key)
+            for key in self.user_improvements:
+                print_tips(key)
 
     # TODO: Add more categories and tips. Improve user interface in general
-
