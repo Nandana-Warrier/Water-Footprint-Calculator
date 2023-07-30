@@ -529,7 +529,6 @@ if __name__ == "__main__":
     # Get user choice for tips
     want_tips = get_tips_choice()
     if want_tips.lower() == "yes":
-        # Import and display tips
         food_tips_obj.all_items = imported_food_data
         food_tips_obj.category_tips_dict = imported_tips_data
         food_tips_obj.category_column = "Category"
