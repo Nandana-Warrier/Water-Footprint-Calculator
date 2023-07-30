@@ -1,118 +1,125 @@
-Food,Serving Size,Gallons,Litres,Category
-Chocolate,4,516,1953,other
-Almonds,4,483,1828,other
-Beef,4,463,1753,meat
-Cashews,4,427,1616,other
-Pistachios,4,341,1291,other
-Hazelnuts,4,316,1196,other
-Lamb and mutton,4,313,1185,meat
-Walnuts,4,279,1056,other
-Dried Apples,4,206,780,produce
-Prunes,4,187,708,produce
-Pork and bacon,4,180,681,meat
-Butter,4,167,632,processed foods
-Goat,4,166,628,meat
-Quinoa,4,135,511,other
-Dried Apricots,4,133,503,produce
-Chicken,4,130,492,meat
-Turkey,4,130,492,meat
-Peanuts,4,119,450,other
-Soy burger,4,113,428,processed foods
-Figs,4,98,371,produce
-Chicken Eggs,4,98,371,other
-Cows Milk,4,98,371,processed foods
-Cheese,4,95,360,processed foods
-Olives,4,90,341,produce
-Chestnuts,4,83,314,other
-Oatmeal,4,76,288,processed foods
-Tofu,4,76,288,processed foods
-Raisins,4,73,276,produce
-White Rice,4,73,276,processed foods
-Apple juice,8,71,269,processed foods
-Dates,4,68,257,produce
-Black-eyed peas,4,67,254,produce
-Cowpeas,4,67,254,produce
-Coffee,8,66,250,processed foods
-Plums,4,65,246,produce
-Asparagus,4,65,246,produce
-Brown Rice,4,65,246,processed foods
-Soybeans,4,64,242,produce
-Edamame,4,64,242,produce
-Milk,8,64,242,processed foods
-Orange juice,8,64,242,processed foods
-Lentils,4,57,216,produce
-Pasta,4,56,212,processed foods
-Wheat flour,4,55,208,processed foods
-Guava,4,54,204,produce
-Mangoes,4,54,204,produce
-Pigeon peas,4,54,204,produce
-Pizza; sauce and cheese,4,53,201,processed foods
-Dry Beans,4,49,185,produce
-Cherries,4,48,182,produce
-Plantains,4,48,182,produce
-Bread,4,48,182,processed foods
-Garbanzo beans,4,41,155,produce
-Chickpeas,4,41,155,produce
-Apricots,4,39,148,produce
-Corn flour,4,38,144,processed foods
-Sweet Corn,4,37,140,produce
-Yogurt,4,36,136,processed foods
-Avocados,4,35,132,produce
-Wine,5,35,132,other
-Crisps,4,31,132,processed foods
-Potato chips,4,31,117,processed foods
-Pears,4,28,106,produce
-Peaches and Nectarines,4,27,102,produce
-Soft drink,8,26,98,processed foods
-Apples,4,25,95,produce
-Blueberries,4,25,95,produce
-Artichokes,4,25,95,produce
-Bananas,4,24,91,produce
-Tangerines,4,22,83,produce
-Clementines,4,22,83,produce
-Mandarins,4,22,83,produce
-Broad beans,4,20,76,produce
-Lemons,4,19,72,produce
-Limes,4,19,72,produce
-Beer,8,19,72,other
-Soy milk,8,19,72,processed foods
-Grapes,4,18,68,produce
-Garlic,4,18,68,produce
-Fresh Peas,,18,68,produce
-Taro,4,18,68,produce
-Oranges,4,17,64,produce
-Okra,4,17,64,produce
-Green Beans,4,16,61,produce
-String beans,4,16,61,produce
-Grapefruit,4,15,57,produce
-Kiwifruit,4,15,57,produce
-Papaya,4,15,57,produce
-Blackberries,4,12,45,produce
-Raspberries,4,12,45,produce
-Sweet potatoes,4,12,45,produce
-Cucumbers,4,11,42,produce
-Eggplants,4,11,42,produce
-Chili Peppers,4,11,42,produce
-Sweet Peppers,4,11,42,produce
-Strawberries,4,10,38,produce
-Pumpkins,4,10,38,produce
-Squash,4,10,38,produce
-Broccoli,4,9,34,produce
-Brussels sprouts,4,9,34,produce
-Cauliflower,4,9,34,produce
-Potatoes,4,9,34,produce
-Spinach,4,9,34,produce
-Cranberries,4,8,30,produce
-Pineapples,4,8,30,produce
-Cabbage,4,8,30,produce
-Kale,4,8,30,produce
-Kohlrabi,4,8,30,produce
-Onions,4,8,30,produce
-Cantaloupe and other melons,4,7,26,produce
-Watermelons,4,7,26,produce
-Lettuce,4,7,26,produce
-Tea,8,7,26,other
-Carrots,4,6,23,produce
-Celery,4,6,23,produce
-Tomatoes,4,6,23,produce
-Turnips,4,6,23,produce
+Food,Serving Size,Gallons,Litres,Category,Explanation
+Chocolate,4,516,1953,other,"The water footprint of chocolate varies depending on where and how the cocoa (or cacao) trees and other ingredients were grown. Chocolate ingredients are almost entirely rainfed (green water), receive little irrigation (blue water) and require some fertilizer and pesticides that cause water pollution (grey water). There is also water pollution associated with processing, packaging and transporting chocolate."
+Almonds,4,483,1828,other,"Almond trees thrive in semi-arid Mediterranean climates, are primarily rainfed (green water), can require significant amounts of irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Beef,4,463,1753,meat,"Cattle tend to have long lives and eat large amounts of grass and/or grain. Most US cattle eat grass for the majority of their lives and are finished in feedlots where they are given feed made from corn, hay and leftover distiller's grain. These crops are predominantly rainfed (green water), however feed grain crops are increasingly being irrigated (blue water). Beef production can cause water pollution (grey water) from large concentrations of manure leaching into soil and from fertilizer and/or pesticides used to grow feed crops running off into waterways."
+Cashews,4,427,1616,other,Cashew trees are tropical evergreens that rely almost entirely on rainfall (green water) and can receive supplemental irrigation (blue water).
+Pistachios,4,341,1291,other,"Pistachio trees grow in warm, Mediterranean climates where they are primarily irrigated (blue water) in addition to being rainfed (green water), and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Hazelnuts,4,316,1196,other,"Hazelnuts grow on shrubs or as single-stem trees in moderate climates where they are mainly rainfed (green water), can require a significant amount of irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Lamb and mutton,4,313,1185,meat,"Most sheep are raised in pasture- and forage-based systems and eat grass that is predominantly rainfed (green water), although sometimes they are fed grain in feedlots. Feed grains are typically rainfed (green water) but are increasingly being irrigated (blue water). Because of the foraging diet of sheep and lambs, their production tends to cause minimal water pollution (grey water)."
+Walnuts,4,279,1056,other,"Walnut trees thrive in semi-arid Mediterranean climates, are primarily rainfed (green water), can require significant amounts of irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Dried Apples,4,206,780,dried fruits,"Apple trees are primarily rainfed (green water) and can receive supplemental irrigation (blue water). Most apple trees are treated heavily with pesticides, and can cause water pollution (grey water) from fertilizer and/or pesticide use. 
+- Dried fruits tend to have bigger water footprints than their fresh variety because of water consumption associated with processing."
+Prunes,4,187,708,dried fruits,"Plum trees thrive in a warm Mediterranean climate and are primarily rainfed (green water), can receive some supplemental irrigation (blue water) and can cause water pollution from the significant application of fertilizer and/or pesticides (grey water). 
+- Dried fruits tend to have bigger water footprints than their fresh variety because of water consumption associated with processing."
+Pork and bacon,4,180,681,meat,"Most hogs are raised in ""industrial"" systems, in feedlots where they are fed grain made from wheat, corn, barley, oats and sorghum, although in the US the feed is often made from corn and soybeans. Feed grains are primarily rainfed (green water) but are increasingly being irrigated (blue water). Pork production can cause water pollution (grey water) from large concentrations of animal manure leaching into soils and from the fertilizer and/or pesticides used to grow feed crops running off into waterways."
+Butter,4,167,632,processed foods,"Dairy cows tend to have long lives in systems where they eat large quantities of grass and feed grain made from corn and soybeans.
+Dairies can also cause a significant amount of water pollution from manure leaching into waterways.
+- Feed grains are predominantly rainfed (green water), although corn and soybeans are increasingly being irrigated (blue water) in some states. Butter production can cause water pollution (grey water) from processing, packaging and transportation, and when fertilizer and/or pesticides are used in feed crop production."
+Goat,4,166,628,meat,"Most meat goats are raised in pasture- and forage-based systems and eat grass that is predominantly rainfed (green water) and can receive some small amount of irrigation (blue water). Because of the foraging diet of meat goats, their production tends to cause minimal water pollution (grey water)."
+Quinoa,4,135,511,other,"Native to the semi-arid Andes Mountains, quinoa plants are almost entirely rainfed (green water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Dried Apricots,4,133,503,dried fruits,"Apricot trees are primarily rainfed (green water), but receive significant amounts of irrigation (blue water) as they are typically produced in semi-arid regions. 
+- Dried fruits tend to have bigger water footprints than their fresh variety because of water consumption associated with processing."
+Chicken,4,130,492,meat,"Most chickens in the US are raised in ""industrial"" systems where they're given feed made from corn and soybeans. Most feed grains are rainfed (green water) but are increasingly being irrigated (blue water). Chicken production can cause water pollution (grey water) from large concentrations of animal manure leaching into soil and from fertilizer and/or pesticides used to grow feed crops leaching into waterways."
+Turkey,4,130,492,meat,"Most turkeys in the US are raised in ""industrial"" systems where they are given feed made from corn and soybeans. Feed grains are primarily rainfed (green water) but are also increasingly being irrigated (blue water). Turkey production can cause water pollution (grey water) from large concentrations of animal manure leaching into the soil and from the fertilizer and/or pesticides used to grow feed crops running off into waterways."
+Peanuts,4,119,450,other,"Peanut plants rely almost entirely on rainfall (green water), can receive some supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Soy burger,4,113,428,processed foods,"Veggie burgers can be made from many different ingredients; soy is used here as a stand-in. The water footprint is primarily associated with growing soybeans and other ingredients (spices, binders, etc.) required to make the burger. 
+- Soybeans are mostly rainfed (green water), although in the US they are increasingly being irrigated (blue water) in some states and can cause pollution (grey water) from fertilizer and/or pesticides used to grow the soybeans and other ingredients.
+- There is also pollution associated with manufacturing veggie burgers, including processing, assembly, packaging and transportation."
+Figs,4,98,371,produce,Fig trees thrive in a Mediterranean climate and require regular and substantial irrigation (blue water) to augment the rain (green water) they receive.
+Chicken Eggs,4,98,371,other,"In the US, most layer chickens that produce eggs are raised in ""industrial"" systems where they're given feed made from corn and soybeans. Most feed grains are rainfed (green water) but are increasingly being irrigated (blue water). Chicken (egg) production can cause water pollution (grey water) from large concentrations of animal manure leaching into the soil and from the fertilizer and/or pesticides used to grow feed crops leaching into waterways."
+Cows Milk,4,98,371,processed foods,
+Cheese,4,95,360,processed foods,
+Olives,4,90,341,produce,
+Chestnuts,4,83,314,other,
+Oatmeal,4,76,288,processed foods,
+Tofu,4,76,288,processed foods,
+Raisins,4,73,276,produce,
+White Rice,4,73,276,processed foods,
+Apple juice,8,71,269,processed foods,
+Dates,4,68,257,produce,
+Black-eyed peas,4,67,254,produce,
+Cowpeas,4,67,254,produce,
+Coffee,8,66,250,processed foods,
+Plums,4,65,246,produce,
+Asparagus,4,65,246,produce,
+Brown Rice,4,65,246,processed foods,
+Soybeans,4,64,242,produce,
+Edamame,4,64,242,produce,
+Milk,8,64,242,processed foods,
+Orange juice,8,64,242,processed foods,
+Lentils,4,57,216,produce,
+Pasta,4,56,212,processed foods,
+Wheat flour,4,55,208,processed foods,
+Guava,4,54,204,produce,
+Mangoes,4,54,204,produce,
+Pigeon peas,4,54,204,produce,
+Pizza; sauce and cheese,4,53,201,processed foods,
+Dry Beans,4,49,185,produce,
+Cherries,4,48,182,produce,
+Plantains,4,48,182,produce,
+Bread,4,48,182,processed foods,
+Garbanzo beans,4,41,155,produce,
+Chickpeas,4,41,155,produce,
+Apricots,4,39,148,produce,
+Corn flour,4,38,144,processed foods,
+Sweet Corn,4,37,140,produce,
+Yogurt,4,36,136,processed foods,
+Avocados,4,35,132,produce,
+Wine,5,35,132,other,
+Crisps,4,31,132,processed foods,
+Potato chips,4,31,117,processed foods,
+Pears,4,28,106,produce,
+Peaches and Nectarines,4,27,102,produce,
+Soft drink,8,26,98,processed foods,
+Apples,4,25,95,produce,
+Blueberries,4,25,95,produce,
+Artichokes,4,25,95,produce,
+Bananas,4,24,91,produce,
+Tangerines,4,22,83,produce,
+Clementines,4,22,83,produce,
+Mandarins,4,22,83,produce,
+Broad beans,4,20,76,produce,
+Lemons,4,19,72,produce,
+Limes,4,19,72,produce,
+Beer,8,19,72,other,
+Soy milk,8,19,72,processed foods,
+Grapes,4,18,68,produce,
+Garlic,4,18,68,produce,
+Fresh Peas,,18,68,produce,
+Taro,4,18,68,produce,
+Oranges,4,17,64,produce,
+Okra,4,17,64,produce,
+Green Beans,4,16,61,produce,
+String beans,4,16,61,produce,
+Grapefruit,4,15,57,produce,
+Kiwifruit,4,15,57,produce,
+Papaya,4,15,57,produce,
+Blackberries,4,12,45,produce,
+Raspberries,4,12,45,produce,
+Sweet potatoes,4,12,45,produce,
+Cucumbers,4,11,42,produce,
+Eggplants,4,11,42,produce,
+Chili Peppers,4,11,42,produce,
+Sweet Peppers,4,11,42,produce,
+Strawberries,4,10,38,produce,
+Pumpkins,4,10,38,produce,
+Squash,4,10,38,produce,
+Broccoli,4,9,34,produce,
+Brussels sprouts,4,9,34,produce,
+Cauliflower,4,9,34,produce,
+Potatoes,4,9,34,produce,
+Spinach,4,9,34,produce,
+Cranberries,4,8,30,produce,
+Pineapples,4,8,30,produce,
+Cabbage,4,8,30,produce,
+Kale,4,8,30,produce,
+Kohlrabi,4,8,30,produce,
+Onions,4,8,30,produce,
+Cantaloupe and other melons,4,7,26,produce,
+Watermelons,4,7,26,produce,
+Lettuce,4,7,26,produce,
+Tea,8,7,26,other,
+Carrots,4,6,23,produce,
+Celery,4,6,23,produce,
+Tomatoes,4,6,23,produce,
+Turnips,4,6,23,produce,
