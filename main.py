@@ -12,7 +12,7 @@ def welcome_message():
 def get_food_data():
     food_object = Food('week')
     foods_dict = food_object.load_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
-                                           serving="Serving Size", category="Category", explanation="Explanation")
+                                           serving="Serving Size", category="Category")
     return food_object, foods_dict
 
 
@@ -81,7 +81,8 @@ print(current_food_object.calculate_food_wf())
 
 want_tips = get_tips_choice()
 if want_tips.lower() == "yes":
-    current_tips_object = Tips(all_items_dict=current_food_object.food_dict, selected_items=list(current_food_object.user_foods.keys()))
+    current_tips_object = Tips(all_items_dict=current_food_object.food_dict,
+                               selected_items=list(current_food_object.user_foods.keys()))
     current_tips_object.import_tips("Tips for Categories.csv", "Category", "Tip1", "Tip2")
     current_tips_object.display_tips(message_before_items="\nSince you have chosen:", general_category="all",
                                      general_message="\nHere are some general tips to keep in mind: ")

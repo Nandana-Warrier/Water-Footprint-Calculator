@@ -133,7 +133,3 @@ class Food:
             str: A string representing the calculated water footprint.
         """
         return f"Your water footprint is {sum(self.user_wfs) * self.household_members} in {self.unit} per {self.period}."
-
-    def print_explanation(self, food):
-        pass
-    # TODO: Add a meal_ingredients function
