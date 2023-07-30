@@ -1,4 +1,3 @@
-import re
 import csv
 
 
@@ -25,29 +24,30 @@ def combine_keys_with_same_values(dictionary):
     return new_dict
 
 
-def format_data(data, replace_spaces):
+def format_data(data, replace_spaces, keep_case=False):
     if replace_spaces:
         data = data.replace(" ", "")
     if data.isdigit():
         return int(data)
     else:
-        parts = re.split(r"/", data)  # Split data using forward slash
-        for part in parts:
-            if "," in part:  # Check if any part contains a comma
-                return ", ".join(parts)  # Join parts with a comma and a space
-        return str(data).lower()
+        if not keep_case:
+            data = data.lower()
+        if "/" in data:
+            parts = tuple(data.split("/"))  # Split data using forward slash
+            return parts
+        return str(data)
 
 
-def create_value_dict(pros_keys, dict_list, replace_spaces, formatted_title=None):
+def create_value_dict(prospective_keys, dict_list, replace_spaces, keep_case=False, formatted_title=None):
     """Returns list of dictionaries with characteristics to be used as values for another dictionary"""
     value_list = []
     for d in dict_list:
         a_dict = {}
-        for key in pros_keys:
+        for key in prospective_keys:
             for k in d:
                 if k == key or key == formatted_title:
                     break
             # noinspection PyUnboundLocalVariable
-            a_dict.update({key: format_data(d[k], replace_spaces)} if key is not None else {})
+            a_dict.update({key: format_data(d[k], replace_spaces, keep_case)} if key is not None else {})
         value_list.append(a_dict)
     return value_list
