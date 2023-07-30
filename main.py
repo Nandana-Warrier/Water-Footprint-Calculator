@@ -11,16 +11,22 @@ def welcome_message():
 # Function to get food data from CSV and create Food and Tips objects
 def get_food_data():
     food_object = Food('week')
-    tips_object = Tips(all_items_dict=food_object.food_dict, selected_items=food_object.user_foods)
     foods_dict = food_object.load_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
                                            serving="Serving Size", category="Category", explanation="Explanation")
-    return food_object, tips_object, foods_dict
+    return food_object, foods_dict
 
 
 # Function to display the list of food items
 def display_food_items(food_object):
     print("Here are the list of food items: ")
     print(food_object.display_available_foods())
+
+
+def display_user_foods(food_object):
+    i = 1
+    for food, wf in food_object.user_foods.items():
+        print(f"{i}. {food} ({wf} {food_object.unit})")
+        i += 1
 
 
 # Function to get user input for food consumption
@@ -37,7 +43,7 @@ def get_user_food_input(food_object):
         if food == "list":
             display_food_items(food_object)
         elif food == "mylist":
-            print(food_object.user_foods)
+            display_user_foods(current_food_object)
         elif food == "end":
             break
         else:
@@ -65,17 +71,19 @@ def get_tips_choice():
 
 welcome_message()
 
-food_obj, food_tips_obj, foods = get_food_data()
+current_food_object, foods = get_food_data()
 
-display_food_items(food_obj)
+display_food_items(current_food_object)
 
-user_foods = get_user_food_input(food_obj)
+user_foods = get_user_food_input(current_food_object)
 
-print(food_obj.calculate_food_wf())
+print(current_food_object.calculate_food_wf())
 
 want_tips = get_tips_choice()
 if want_tips.lower() == "yes":
-    food_tips_obj.import_tips("Tips for Categories.csv", "Category", "Tip1", "Tip2")
-    food_tips_obj.display_tips(message_before_items="\nSince you have chosen:", general_category="all", general_message="\nHere are some general tips to keep in mind: ")
+    current_tips_object = Tips(all_items_dict=current_food_object.food_dict, selected_items=list(current_food_object.user_foods.keys()))
+    current_tips_object.import_tips("Tips for Categories.csv", "Category", "Tip1", "Tip2")
+    current_tips_object.display_tips(message_before_items="\nSince you have chosen:", general_category="all",
+                                     general_message="\nHere are some general tips to keep in mind: ")
 
 input("\nThank you for using this water footprint calculator! Press input to exit: ")
