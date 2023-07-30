@@ -2,13 +2,13 @@ from food import *
 from tips import *
 
 test_food_obj = Food('week')
-test_food_tips_obj = Tips(all_items=test_food_obj.food_dict, user_items=test_food_obj.user_foods)
+test_food_tips_obj = Tips(all_items_dict=test_food_obj.food_dict, selected_items=test_food_obj.user_foods)
 foods = test_food_obj.food_dict = test_food_obj.load_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
-                                                             serving="Serving Size", category="Category")
+                                                              serving="Serving Size", category="Category")
 test_food_tips_obj.import_tips("Tips for Categories.csv", "Category", "Tip1", "Tip2")
 
 print(test_food_obj.food_dict)
-print(test_food_tips_obj.category_tips)
+print(test_food_tips_obj.category_tips_dict)
 
 # noinspection SpellCheckingInspection
 food_dict = {'Chocolate': {'Formatted': 'chocolate', 'Serving Size': 4, 'Litres': 1953, 'Category': 'other'},
@@ -19,21 +19,22 @@ food_dict = {'Chocolate': {'Formatted': 'chocolate', 'Serving Size': 4, 'Litres'
              'Hazelnuts': {'Formatted': 'hazelnuts', 'Serving Size': 4, 'Litres': 1196, 'Category': 'other'},
              'Lamb and mutton': {'Formatted': 'lambandmutton', 'Serving Size': 4, 'Litres': 1185, 'Category': 'meat'},
              'Walnuts': {'Formatted': 'walnuts', 'Serving Size': 4, 'Litres': 1056, 'Category': 'other'},
-             'Dried Apples': {'Formatted': 'driedapples', 'Serving Size': 4, 'Litres': 780, 'Category': 'produce'},
-             'Prunes': {'Formatted': 'prunes', 'Serving Size': 4, 'Litres': 708, 'Category': 'produce'},
+             'Dried Apples': {'Formatted': 'driedapples', 'Serving Size': 4, 'Litres': 780, 'Category': 'driedfruits'},
+             'Prunes': {'Formatted': 'prunes', 'Serving Size': 4, 'Litres': 708, 'Category': 'driedfruits'},
              'Pork and bacon': {'Formatted': 'porkandbacon', 'Serving Size': 4, 'Litres': 681, 'Category': 'meat'},
              'Butter': {'Formatted': 'butter', 'Serving Size': 4, 'Litres': 632, 'Category': 'processedfoods'},
              'Goat': {'Formatted': 'goat', 'Serving Size': 4, 'Litres': 628, 'Category': 'meat'},
              'Quinoa': {'Formatted': 'quinoa', 'Serving Size': 4, 'Litres': 511, 'Category': 'other'},
-             'Dried Apricots': {'Formatted': 'driedapricots', 'Serving Size': 4, 'Litres': 503, 'Category': 'produce'},
+             'Dried Apricots': {'Formatted': 'driedapricots', 'Serving Size': 4, 'Litres': 503,
+                                'Category': 'driedfruits'},
              'Chicken': {'Formatted': 'chicken', 'Serving Size': 4, 'Litres': 492, 'Category': 'meat'},
              'Turkey': {'Formatted': 'turkey', 'Serving Size': 4, 'Litres': 492, 'Category': 'meat'},
              'Peanuts': {'Formatted': 'peanuts', 'Serving Size': 4, 'Litres': 450, 'Category': 'other'},
              'Soy burger': {'Formatted': 'soyburger', 'Serving Size': 4, 'Litres': 428, 'Category': 'processedfoods'},
              'Figs': {'Formatted': 'figs', 'Serving Size': 4, 'Litres': 371, 'Category': 'produce'},
              'Chicken Eggs': {'Formatted': 'chickeneggs', 'Serving Size': 4, 'Litres': 371, 'Category': 'other'},
-             'Cows Milk': {'Formatted': 'cowsmilk', 'Serving Size': 4, 'Litres': 371, 'Category': 'processedfoods'},
-             'Cheese': {'Formatted': 'cheese', 'Serving Size': 4, 'Litres': 360, 'Category': 'processedfoods'},
+             'Cheese': {'Formatted': 'cheese', 'Serving Size': 4, 'Litres': 360,
+                        'Category': ('processedfoods', 'dairy')},
              'Olives': {'Formatted': 'olives', 'Serving Size': 4, 'Litres': 341, 'Category': 'produce'},
              'Chestnuts': {'Formatted': 'chestnuts', 'Serving Size': 4, 'Litres': 314, 'Category': 'other'},
              'Oatmeal': {'Formatted': 'oatmeal', 'Serving Size': 4, 'Litres': 288, 'Category': 'processedfoods'},
@@ -138,7 +139,7 @@ food_dict = {'Chocolate': {'Formatted': 'chocolate', 'Serving Size': 4, 'Litres'
 tip_dict = {'all': {
     'Tip1': 'Waste less:\n -  Because it takes a lot of water to get food to people’s plates, wasted food also means wasted water.\n -  The easiest and perhaps most effective thing to do is to plan out meals before heading to the store.',
     'Tip2': 'choose local food:\n - supporting local food production can help preserve water resources by keeping water usage for growing food within the local area. this reduces the need for transporting water across long distances.'
-    },
+},
     'meat': {
         'Tip1': 'Choose Better Meat: Choose pasture raised meat as much as possible as despite negligible differences between water footprints, their impact on water resources are different:\n - Pasture-fed (Green Water Footprint): Uses forage as feed grown from rainwater and manure is used as fertilisers.\n - Conventional (Blue Water Footprint): Uses feed like corn that need irrigation and animal waste is turned into manure lagoons that can pollute surrounding waters.',
         'Tip2': 'Eat Less Meat: On average, the water footprint of a vegan or vegetarian is around half that of a meat eater. Eating less meat and replacing it with less water-intensive plant-based alternatives can reduce water footprints'
