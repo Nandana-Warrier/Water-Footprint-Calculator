@@ -84,7 +84,7 @@ if want_tips.lower() == "yes":
     current_tips_object = Tips(all_items_dict=current_food_object.food_dict,
                                selected_items=list(current_food_object.user_foods.keys()))
     current_tips_object.import_tips("Tips for Categories.csv", "Category", "Tip1", "Tip2")
-    current_tips_object.display_tips(message_before_items="\nSince you have chosen:", general_category="all",
+    current_tips_object.display_tips(item_key="Foods", message_before_items="\nSince you have chosen:", general_category="all",
                                      general_message="\nHere are some general tips to keep in mind: ")
 
 input("\nThank you for using this water footprint calculator! Press input to exit: ")
