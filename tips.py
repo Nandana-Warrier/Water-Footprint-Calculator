@@ -98,5 +98,3 @@ class Tips:
         else:
             for key in self.user_improvements:
                 print_tips(key)
-
-    # TODO: Add more categories and tips. Improve user interface in general
