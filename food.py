@@ -49,8 +49,8 @@ class Food:
 
         def import_function():
             """Returns food_dict with food name as keys and dictionaries of its characteristics as values."""
-            in_list = create_value_dict(["Formatted", serving, self.unit, category, explanation, other],
-                                        the_list, True, "Formatted")
+            in_list = create_value_dict(prospective_keys=["Formatted", serving, self.unit, category, explanation, other],
+                                        dict_list=the_list, replace_spaces=True, formatted_title="Formatted")
             i = 0
             for _ in the_list:
                 value_dict = in_list[i]
