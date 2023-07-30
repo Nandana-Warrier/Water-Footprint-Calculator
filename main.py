@@ -1,53 +1,81 @@
 from food import *
 from tips import *
 
-input("Welcome to the water footprint calculator!")
-input("This program is just to give you an idea of how much water it takes for making the foods you may have been "
-      "taking without a second thought. ")
 
-food_obj = Food('week')
-food_tips_obj = Tips(all_items=food_obj.food_dict, user_items=food_obj.user_foods)
-foods = food_obj.food_dict = food_obj.use_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
-                                                   serving="Serving Size", category="Category")
+def welcome_message():
+    print("Welcome to the water footprint calculator!")
+    print("This program is designed to give you an idea of how much water it takes to produce the foods you consume.")
+    input("Press Enter to continue...")
 
-print("Here are the list of food items: ")
-print(food_obj.print_foods())
 
-end = False
+# Function to get food data from CSV and create Food and Tips objects
+def get_food_data():
+    food_object = Food('week')
+    tips_object = Tips(all_items_dict=food_object.food_dict, selected_items=food_object.user_foods)
+    foods_dict = food_object.load_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
+                                           serving="Serving Size", category="Category", explanation="Explanation")
+    return food_object, tips_object, foods_dict
 
-while not end:
-    user_input = input("""\nWhich all food from this list do you consume? Type in the name or the serial number. 
-    If you want the list, type 'list'. 
-    If you want to see all the items you have added, type 'my list'. 
-    If the list of food you consume has ended, type 'end'. 
-    Type here: """)
-    food = format_data(user_input, True)
-    if food == "list":
-        food_obj.print_foods()
-    elif food == "mylist":
-        print(food_obj.user_foods)
-    elif food == "end":
-        end = True
-    else:
-        items = food_obj.check_food_item(user_input)
-        if isinstance(items, dict):
-            times = ""
-            while not isinstance(times, float) and not isinstance(times, int):
-                times = input(f"How many times do you have {items['food']} per week, assuming the serving "
-                              f"size is {items['Serving Size']} ounces?: ")
-                try:
-                    times = float(times)
-                except ValueError:
-                    print(f"That is not a number. Please try again")
-            food_obj.add_food_item(items['food'], items['wf'], times)
 
-    print("\n")
+# Function to display the list of food items
+def display_food_items(food_object):
+    print("Here are the list of food items: ")
+    print(food_object.display_available_foods())
+
+
+# Function to get user input for food consumption
+def get_user_food_input(food_object):
+    input_foods = []
+    while True:
+        user_input = input("""\nWhich foods from the list above do you consume? Type in the name or the serial number. 
+        If you want to see the list again, type 'list'. 
+        If you want to see all the items you have added, type 'my list'. 
+        If you have finished entering foods, type 'end'. 
+        Type here: """)
+
+        food = format_data(user_input, True)
+        if food == "list":
+            display_food_items(food_object)
+        elif food == "mylist":
+            print(food_object.user_foods)
+        elif food == "end":
+            break
+        else:
+            items = food_object.check_food_item(user_input)
+            if isinstance(items, dict):
+                times = ""
+                while not isinstance(times, float) and not isinstance(times, int):
+                    times = input(f"How many times do you have {items['food']} per week, assuming the serving "
+                                  f"size is {items['Serving Size']} ounces?: ")
+                    try:
+                        times = float(times)
+                    except ValueError:
+                        print(f"That is not a number. Please try again")
+                food_object.add_food_item(items['food'], items['wf'], times)
+                input_foods.append(items['food'])
+                print("\n")
+    return input_foods
+
+
+# Function to get user input for receiving tips
+def get_tips_choice():
+    return input(
+        "Would you like some tips to improve your water footprint through better food habits? Type yes or no: ")
+
+
+welcome_message()
+
+food_obj, food_tips_obj, foods = get_food_data()
+
+display_food_items(food_obj)
+
+user_foods = get_user_food_input(food_obj)
 
 print(food_obj.calculate_food_wf())
 
-want_tips = input("Would you like some tips to improve your water footprint through better food habits? Type yes or "
-                  "no: ")
-if want_tips == "yes":
+want_tips = get_tips_choice()
+if want_tips.lower() == "yes":
     food_tips_obj.import_tips("Tips for Categories.csv", "Category", "Tip1", "Tip2")
-    food_tips_obj.display_tips(message_before_items="\nSince you have chosen:", all_category="all", general_message="\nHere are some general tips to keep in mind: ")
+    food_tips_obj.display_tips(message_before_items="\nSince you have chosen:", general_category="all", general_message="\nHere are some general tips to keep in mind: ")
+
 input("\nThank you for using this water footprint calculator! Press input to exit: ")
