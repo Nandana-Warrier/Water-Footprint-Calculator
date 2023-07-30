@@ -3,7 +3,7 @@ from tips import *
 
 test_food_obj = Food('week')
 test_food_tips_obj = Tips(all_items=test_food_obj.food_dict, user_items=test_food_obj.user_foods)
-foods = test_food_obj.food_dict = test_food_obj.use_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
+foods = test_food_obj.food_dict = test_food_obj.load_food_csv("Water Footprint of Food Guide.csv", "Food", "Litres",
                                                              serving="Serving Size", category="Category")
 test_food_tips_obj.import_tips("Tips for Categories.csv", "Category", "Tip1", "Tip2")
 
