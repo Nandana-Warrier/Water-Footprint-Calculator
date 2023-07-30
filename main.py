@@ -78,6 +78,7 @@ def print_tips():
             "\nWould you like some tips to improve your water footprint through better food habits? Type yes or no: ")
         if want_tips.lower() == "yes":
             get_tips()
+            input("\nThank you for using this water footprint calculator! Press enter to exit: ")
             return
         elif want_tips.lower() == "no":
             input("\nThank you for using this water footprint calculator! Press enter to exit: ")
@@ -90,7 +91,7 @@ welcome_message()
 
 current_food_object, foods = get_food_data()
 
-print(display_food_items(current_food_object))
+display_food_items(current_food_object)
 
 get_user_food_input(current_food_object)
 
