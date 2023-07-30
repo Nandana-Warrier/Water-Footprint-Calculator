@@ -1,4 +1,4 @@
-Food,Serving Size,Gallons,Litres,Category,Explanation
+Food,Serving Size,Gallons,Litres,Category,Information
 Chocolate,4,516,1953,other,"The water footprint of chocolate varies depending on where and how the cocoa (or cacao) trees and other ingredients were grown. Chocolate ingredients are almost entirely rainfed (green water), receive little irrigation (blue water) and require some fertilizer and pesticides that cause water pollution (grey water). There is also water pollution associated with processing, packaging and transporting chocolate."
 Almonds,4,483,1828,other,"Almond trees thrive in semi-arid Mediterranean climates, are primarily rainfed (green water), can require significant amounts of irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
 Beef,4,463,1753,meat,"Cattle tend to have long lives and eat large amounts of grass and/or grain. Most US cattle eat grass for the majority of their lives and are finished in feedlots where they are given feed made from corn, hay and leftover distiller's grain. These crops are predominantly rainfed (green water), however feed grain crops are increasingly being irrigated (blue water). Beef production can cause water pollution (grey water) from large concentrations of manure leaching into soil and from fertilizer and/or pesticides used to grow feed crops running off into waterways."
@@ -30,97 +30,99 @@ Chicken Eggs,4,98,371,other,"In the US, most layer chickens that produce eggs ar
 Cheese,4,95,360,processed foods/dairy,"Cheese production can cause pollution (grey water) because of processing, packaging and transportation, and when fertilizer and/or pesticides are used in feed crop production.
 - Dairy cows tend to have long lives in systems where they eat large quantities of grass and feed grain made from corn and soybeans. Feed grains are predominantly rainfed (green water), although in the US, corn and soybean plants are increasingly being irrigated (blue water) in some states. 
 - Dairies can also cause a significant amount of water pollution from manure leaching into waterways."
-Olives,4,90,341,produce,
-Chestnuts,4,83,314,other,
-Oatmeal,4,76,288,processed foods,
-Tofu,4,76,288,processed foods,
-Raisins,4,73,276,produce,
-White Rice,4,73,276,processed foods,
-Apple juice,8,71,269,processed foods,
-Dates,4,68,257,produce,
-Black-eyed peas,4,67,254,produce,
-Cowpeas,4,67,254,produce,
-Coffee,8,66,250,processed foods,
-Plums,4,65,246,produce,
-Asparagus,4,65,246,produce,
-Brown Rice,4,65,246,processed foods,
-Soybeans,4,64,242,produce,
-Edamame,4,64,242,produce,
-Milk,8,64,242,processed foods,
-Orange juice,8,64,242,processed foods,
-Lentils,4,57,216,produce,
-Pasta,4,56,212,processed foods,
-Wheat flour,4,55,208,processed foods,
-Guava,4,54,204,produce,
-Mangoes,4,54,204,produce,
-Pigeon peas,4,54,204,produce,
-Pizza; sauce and cheese,4,53,201,processed foods,
-Dry Beans,4,49,185,produce,
-Cherries,4,48,182,produce,
-Plantains,4,48,182,produce,
-Bread,4,48,182,processed foods,
-Garbanzo beans,4,41,155,produce,
-Chickpeas,4,41,155,produce,
-Apricots,4,39,148,produce,
-Corn flour,4,38,144,processed foods,
-Sweet Corn,4,37,140,produce,
-Yogurt,4,36,136,processed foods,
-Avocados,4,35,132,produce,
-Wine,5,35,132,other,
-Crisps,4,31,132,processed foods,
-Potato chips,4,31,117,processed foods,
-Pears,4,28,106,produce,
-Peaches and Nectarines,4,27,102,produce,
-Soft drink,8,26,98,processed foods,
-Apples,4,25,95,produce,
-Blueberries,4,25,95,produce,
-Artichokes,4,25,95,produce,
-Bananas,4,24,91,produce,
-Tangerines,4,22,83,produce,
-Clementines,4,22,83,produce,
-Mandarins,4,22,83,produce,
-Broad beans,4,20,76,produce,
-Lemons,4,19,72,produce,
-Limes,4,19,72,produce,
-Beer,8,19,72,other,
-Soy milk,8,19,72,processed foods,
-Grapes,4,18,68,produce,
-Garlic,4,18,68,produce,
-Fresh Peas,,18,68,produce,
-Taro,4,18,68,produce,
-Oranges,4,17,64,produce,
-Okra,4,17,64,produce,
-Green Beans,4,16,61,produce,
-String beans,4,16,61,produce,
-Grapefruit,4,15,57,produce,
-Kiwifruit,4,15,57,produce,
-Papaya,4,15,57,produce,
-Blackberries,4,12,45,produce,
-Raspberries,4,12,45,produce,
-Sweet potatoes,4,12,45,produce,
-Cucumbers,4,11,42,produce,
-Eggplants,4,11,42,produce,
-Chili Peppers,4,11,42,produce,
-Sweet Peppers,4,11,42,produce,
-Strawberries,4,10,38,produce,
-Pumpkins,4,10,38,produce,
-Squash,4,10,38,produce,
-Broccoli,4,9,34,produce,
-Brussels sprouts,4,9,34,produce,
-Cauliflower,4,9,34,produce,
-Potatoes,4,9,34,produce,
-Spinach,4,9,34,produce,
-Cranberries,4,8,30,produce,
-Pineapples,4,8,30,produce,
-Cabbage,4,8,30,produce,
-Kale,4,8,30,produce,
-Kohlrabi,4,8,30,produce,
-Onions,4,8,30,produce,
-Cantaloupe and other melons,4,7,26,produce,
-Watermelons,4,7,26,produce,
-Lettuce,4,7,26,produce,
-Tea,8,7,26,other,
-Carrots,4,6,23,produce,
-Celery,4,6,23,produce,
-Tomatoes,4,6,23,produce,
-Turnips,4,6,23,produce,
+Olives,4,90,341,produce,"Olive trees grow in warm, Mediterranean climates where they are mainly rainfed (green water) and can require a significant amount of irrigation (blue water)."
+Chestnuts,4,83,314,other,"Chestnut trees rely largely on rainfall (green water), can receive supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Oatmeal,4,76,288,processed foods/milled flour,"Oat plants are primarily rainfed (green water), can receive some supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water).
+- Milled oats (like oatmeal) tend to have bigger water footprints than their primary crop because of water consumption associated with processing. "
+Tofu,4,76,288,processed foods,"The water footprint of tofu is largely associated with growing soybeans. 
+- Soybeans are mostly rainfed (green water), although in the US, soybeans are increasingly being irrigated (blue water) in some states. There is also pollution (grey water) associated with processing, packaging and transporting tofu, and a grey water component from fertilizer and/or pesticide use in growing soybeans."
+Raisins,4,73,276,dried fruits,"Grapes vines are primarily rainfed (green water), can require supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+White Rice,4,73,276,processed foods,"Rice plants are rainfed (green water) although most rice produced in the US is irrigated or grown in flooded fields (blue water), and it can cause water pollution from the application of fertilizer and/or pesticides (grey water).
+- Like brown rice, white rice has the hull removed as well as the bran, which increases its water footprint compared to brown rice because of extra processing. "
+Apple juice,8,71,269,processed foods,"The water footprint of apple juice varies depending on where and how the apples were grown. Most of the water footprint is associated with growing apple trees which are primarily rainfed (green water) and are supplemented with substantial amounts of irrigation (blue water) in drier regions. Apple trees are treated heavily with pesticides, and can cause water pollution (grey water) from fertilizer and/or pesticide use. There is also pollution associated with processing, packaging and transporting juice."
+Dates,4,68,257,produce,"Date palm trees thrive in hot, arid climates and require regular irrigation (blue water) to augment the little rain (green water) they typically receive."
+Black-eyed peas,4,67,254,produce,"Cowpeas include black-eyed peas and are a warm season, drought-resistant crop. Cowpea plants are primarily rainfed (green water), receive little supplemental irrigation (blue water) although irrigation will increase their productivity, and are typically grown without pesticides."
+Cowpeas,4,67,254,produce,"Cowpeas include black-eyed peas and are a warm season, drought-resistant crop. Cowpea plants are primarily rainfed (green water), receive little supplemental irrigation (blue water) although irrigation will increase their productivity, and are typically grown without pesticides."
+Coffee,8,66,250,processed foods,"Coffee trees are rainfed (green water) if they are shade-grown and receive significant irrigation (blue water) if they are sun-grown. They can cause water pollution from the use of fertilizer and/or pesticides (grey water) and there is a significant amount of water used in processing coffee using the wet washing method (it can also be ""dry washed""). There is also pollution associated with processing, packaging and transporting coffee."
+Plums,4,65,246,produce,"Plum trees thrive in a warm Mediterranean climate and are primarily rainfed (green water), can receive some supplemental irrigation (blue water) and can cause water pollution from the significant application of fertilizer and/or pesticides (grey water)."
+Asparagus,4,65,246,produce,"Asparagus plants are primarily rainfed (green water), can receive supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Brown Rice,4,65,246,processed foods,"Brown rice has the hull or husk removed, which increases its water footprint for processing. Rice is rainfed (green water) although most rice in the US is irrigated or grown in flooded fields (blue water), and it can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Soybeans,4,64,242,produce,"Soybeans that are grown to be eaten as food, like edamame, are a small percentage of total production. Most of the crop is grown to be heavily processed for by-products like soybean oil and meal. Soybeans plants are primarily rainfed (green water), but depending on the type of soybean and the soil conditions, they can receive supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Edamame,4,64,242,produce,"Soybeans that are grown to be eaten as food, like edamame, are a small percentage of total production. Most of the crop is grown to be heavily processed for by-products like soybean oil and meal. Soybeans plants are primarily rainfed (green water), but depending on the type of soybean and the soil conditions, they can receive supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Milk,8,64,242,dairy,"Dairy cows tend to have long lives in systems where they eat large quantities of grass and feed grains, both of which are predominantly rainfed (green water). In the US, feed grains are increasingly being irrigated (blue water) in some states and can cause water pollution (grey water) from fertilizer and/or pesticide use. Dairies can also pollute water (grey water) when concentrated animal manure leaches into waterways, and there is pollution associated with processing, packaging and transporting milk."
+Orange juice,8,64,242,processed foods,"The water footprint of orange juice is mainly associated with growing oranges and varies depending on where and how the oranges were grown. Orange trees are primarily rainfed (green water), can require supplemental irrigation (blue water) and can cause pollution from the use of fertilizer and pesticides (grey water). The grey water footprint is primarily associated with processing, packaging and transporting orange juice."
+Lentils,4,57,216,produce,"Lentil vines are primarily a dryland, rainfed (green water) crop, but can receive supplemental irrigation (blue water) which can increase problems with pests, and can cause a significant amount of water pollution from the use of fertilizer and/or pesticides (grey water)."
+Pasta,4,56,212,processed foods/milled flour,"Dry pasta is made from specially milled wheat flour. The water footprint of pasta varies depending on where and how the wheat plants were grown. Wheat is primarily rainfed (green water) and can receive supplemental irrigation (blue water). There is pollution (grey water) associated with fertilizer and/or pesticide use in growing wheat as well as with processing, packaging and transporting wheat flour and pasta."
+Wheat flour,4,55,208,processed foods/milled flour,"Milled flours tend to have bigger water footprints than their primary crop (i.e., wheat) because of water consumption associated with processing. Wheat is primarily rainfed (green water), can require some supplemental irrigation (blue water) and can cause water pollution from application of fertilizer and pesticides (grey water)."
+Guava,4,54,204,produce,"Guava trees are mainly rainfed (green water), can require some supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Mangoes,4,54,204,produce,"Mango trees are mainly rainfed (green water), can require supplemental irrigation (blue water) although they need a dry period to flower, and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Pigeon peas,4,54,204,produce,"Pigeon pea shrubs are a significant warm weather, drought-resistant crop that can be grown in poor soils and are primarily rainfed (green water). They can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Pizza; sauce and cheese,4,53,201,processed foods,"Pizza is made and eaten worldwide, and the water footprint varies depending on where and how the ingredients were produced. The water footprint comes from the rainfall (green water) and irrigation (blue water) requirements associated with growing wheat for the crust, tomatoes for the sauce, as well as grass and grains to feed the cows that provide milk for the cheese (which contributes the most). There is also water pollution (grey water) that comes from growing and processing the ingredients and processing, packaging and transporting the pizzas."
+Dry Beans,4,49,185,produce,"Dry beans are grown on bushes or vines and are primarily rainfed (green water), but in the US they receive supplemental irrigation (blue water) and can cause a lot of water pollution from the use of pesticides (grey water)."
+Cherries,4,48,182,produce,"Cherry trees are mainly rainfed (green water), can receive substantial irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Plantains,4,48,182,produce,Plantains and bananas are related. Plantain trees are almost entirely rainfed (green water) and receive very little irrigation (blue water).
+Bread,4,48,182,processed foods,"The water footprint of bread varies depending on where and how the wheat plants were grown. Wheat is primarily rainfed (green water) and can receive supplemental irrigation (blue water). There is water pollution (grey water) associated with fertilizer and/or pesticide use in growing wheat, and there is water pollution associated with processing, packaging and transporting wheat flour and bread."
+Garbanzo beans,4,41,155,produce,"Chickpea plants are a cool season, drought-tolerant crop that are primarily rainfed (green water), can receive some supplemental irrigation (blue water) in drier areas and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Chickpeas,4,41,155,produce,"Chickpea plants are a cool season, drought-tolerant crop that are primarily rainfed (green water), can receive some supplemental irrigation (blue water) in drier areas and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Apricots,4,39,148,produce,"Apricot trees are primarily rainfed (green water), but receive significant amounts of irrigation (blue water) as they are typically produced in semi-arid regions."
+Corn flour,4,38,144,processed foods,"Corn plants are primarily rainfed (green water), are the most heavily irrigated crop (blue water) in the US and can cause significant water pollution from the heavy application of fertilizer and/or pesticides (grey water)."
+Sweet Corn,4,37,140,produce,"Corn is the most irrigated crop in the US because irrigation significantly increases corn yields. Corn plants are primarily rainfed (green water), receive significant supplemental irrigation (blue water) and cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Yogurt,4,36,136,processed foods/dairy,"Dairy cows tend to have long lives in systems where they eat large quantities of grass and feed grain made from corn and soybeans. Feed grains are predominantly rainfed (green water), although in the US, corn and soybeans are increasingly being irrigated (blue water) in some states. Yogurt production can cause pollution (grey water) because of processing, packaging and transportation, and when fertilizer and/or pesticides are used to grow grains for feed. Dairies can also cause a significant amount of water pollution from manure leaching into waterways."
+Avocados,4,35,132,produce,"Avocado trees are primarily rainfed (green water), require a significant amount of supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Wine,5,35,132,processed foods,"The water footprint is mainly associated with growing the grapes and varies depending on where and how the grapes were grown. Grape vines are primarily rainfed (green water), can receive significant supplemental irrigation (blue water) and can cause pollution from the use of fertilizer and/or pesticides (grey water). The grey water footprint is primarily associated with processing, packaging and transporting wine."
+Crisps,4,31,132,processed foods,"Potatoes are a root crop that is primarily rainfed (green water) and can receive supplemental irrigation (blue water). There is pollution (grey water) associated with fertilizer and/or pesticide use in producing potatoes and other ingredients as well as with processing, packaging and transporting potato chips."
+Potato chips,4,31,117,processed foods,"Potatoes are a root crop that is primarily rainfed (green water) and can receive supplemental irrigation (blue water). There is pollution (grey water) associated with fertilizer and/or pesticide use in producing potatoes and other ingredients as well as with processing, packaging and transporting potato chips."
+Pears,4,28,106,produce,Pear trees are primarily rainfed (green water) and receive some supplemental irrigation (blue water) as well as significant fertilizer and pesticides (grey water).
+Peaches and Nectarines,4,27,102,produce,"Peach and nectarine trees are mainly rainfed (green water), receive supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Soft drink,8,26,98,processed foods,"Sugar-sweetened sodas are produced worldwide and in most US states either by major manufacturers or craft producers. Production includes combining sugar and flavorings to create the soft drink. The water footprint is mainly associated with the sugar used (primarily sugar beets, but also sugar cane and corn sugar) and varies depending on where and how the sugar was grown. Sugar beet plants are primarily rainfed (green water), can receive significant supplemental irrigation (blue water) and can cause pollution from the use of fertilizer and pesticides (grey water). The grey water footprint is primarily associated with processing, packaging and transporting the ingredients."
+Apples,4,25,95,produce,"Apple trees are primarily rainfed (green water) and can receive supplemental irrigation (blue water). Most apple trees are treated heavily with pesticides, and can cause water pollution (grey water) from fertilizer and/or pesticide use."
+Blueberries,4,25,95,produce,"Blueberry bushes tend to receive equal amounts of water from rain (green water) and irrigation (blue water), and can cause water pollution from the application of fertilizer and/or pesticides (grey water"
+Artichokes,4,25,95,produce,"Artichoke plants are primarily rainfed (green water), require a significant amount of supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Bananas,4,24,91,produce,Banana trees are primarily rainfed (green water) and can receive supplemental irrigation (blue water).
+Tangerines,4,22,83,produce,"Trees are primarily rainfed (green water), can require some supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Clementines,4,22,83,produce,"Trees are primarily rainfed (green water), can require some supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Mandarins,4,22,83,produce,"Trees are primarily rainfed (green water), can require some supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Broad beans,4,20,76,produce,"Fava bean plants are primarily rainfed (green water), under dry conditions require a significant amount of supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Lemons,4,19,72,produce,"Lemon trees are mainly rainfed (green water), can receive some supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Limes,4,19,72,produce,"Lime trees are mainly rainfed (green water), can receive some supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Beer,8,19,72,processed foods,"Specific types of barley plants are used for malt production and most malt is used for brewing beer. Most of the water footprint of beer is associated with growing barley. The water footprint of beer varies depending on where and how barley was grown. Barley is primarily rainfed (green water), can be supplemented with irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water). There is also pollution associated with processing, packaging and transporting beer."
+Soy milk,8,19,72,processed foods,"The water footprint is mainly associated with growing soybeans. Soybean plants are primarily rainfed (green water), are increasingly being irrigated in the US (blue water) and can cause pollution from the use of fertilizer and/or pesticides (grey water). The grey water footprint is primarily associated with processing, packaging and transporting soy milk."
+Grapes,4,18,68,produce,"Grape vines rely mainly on rainfall (green water), can receive supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Garlic,4,18,68,produce,"Garlic root bulbs are rainfed (green water), can require a significant amount of supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Fresh Peas,4,18,68,produce,"Green peas are rainfed (green water), receive a significant amount of supplemental irrigation water (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Taro,4,18,68,produce,"Taro root is one of the oldest cultivated crops, and when dryland farmed, it is rainfed (green water). Hawaiian taro cultivation uses flooded field and wetland techniques, which increase the blue water requirements. Taro production can cause water pollution from the use of pesticides (grey water)."
+Oranges,4,17,64,produce,"Orange trees rely heavily on rain (green water), can require some supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Okra,4,17,64,produce,"Okra plants are heat and drought-tolerant so they are primarily rainfed (green water) but they are not profitably productive without supplemental irrigation (blue water), and they can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Green Beans,4,16,61,produce,"String beans plants are rainfed (green water), receive a significant amount of supplemental irrigation (blue water) because they are shallow-rooted and they can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+String beans,4,16,61,produce,"String beans plants are rainfed (green water), receive a significant amount of supplemental irrigation (blue water) because they are shallow-rooted and they can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Grapefruit,4,15,57,produce,"Grapefruit trees are primarily rainfed (green water), can receive supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Kiwifruit,4,15,57,produce,"Kiwi fruit vines need a warm climate and are primarily rainfed (green water), receive substantial irrigation in drier summer months (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)"
+Papaya,4,15,57,produce,Papaya trees are primarily rainfed (green water) and can receive some supplemental irrigation (blue water).
+Blackberries,4,12,45,produce,"Blackberry bushes are grown in temperate areas and are largely rainfed (green water), can receive supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Raspberries,4,12,45,produce,"Raspberry bushes, which are related to blackberries and other brambles, grow in temperate areas and are largely rainfed (green water), can receive supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Sweet potatoes,4,12,45,produce,"Sweet potatoes are an indigenous root crop in the US and are primarily rainfed (green water), but in places where rainwater is inconsistent, they can receive a significant amount of supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Cucumbers,4,11,42,produce,"Cucumber vines are grown in both fields and greenhouses. While cucumber vines grown in fields are rainfed (green water), all cucumber vines require supplemental irrigation (blue water) and they can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Eggplants,4,11,42,produce,"Eggplant plants are rainfed (green water) but are not drought-tolerant, so, they require supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Chili Peppers,4,11,42,produce,"Pepper bushes are a hot season crop and are primarily rainfed (green water), but are more productive with supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water). In the US, peppers are mostly drip irrigated, which increases the blue water footprint."
+Sweet Peppers,4,11,42,produce,"Pepper bushes are a hot season crop and are primarily rainfed (green water), but are more productive with supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water). In the US, peppers are mostly drip irrigated, which increases the blue water footprint."
+Strawberries,4,10,38,produce,"Strawberry plants are rainfed (green water), they receive a significant amount of irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Pumpkins,4,10,38,produce,"Pumpkin vines are primarily rainfed (green water), can receive supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Squash,4,10,38,produce,"Squash vines are rainfed (green water), can receive supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Broccoli,4,9,34,produce,"Broccoli plants are primarily rainfed (green water), can require supplemental irrigation (blue water) because they are shallow-rooted and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Brussels sprouts,4,9,34,produce,"Brussels sprouts plants are rainfed (green water), can require irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Cauliflower,4,9,34,produce,"Cauliflower plants are rainfed (green water), require supplemental irrigation (blue water) because they are shallow-rooted and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Potatoes,4,9,34,produce,"Potatoes are a root crop that are primarily rainfed (green water), require a significant amount of supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Spinach,4,9,34,produce,"Spinach plants are primarily rainfed (green water), can receive irrigation water (blue water) especially in the US, and can cause a lot of water pollution (grey water) due to heavy use of fertilizer and herbicides use for weed control."
+Cranberries,4,8,30,produce,"Cranberry bushes are grown in bogs or wetlands, are primarily rainfed (green water), receive substantial irrigation (blue water) through harvest flooding, and can cause water pollution from the significant application of fertilizer and/or pesticides (grey water)."
+Pineapples,4,8,30,produce,Pineapples plants are almost entirely rainfed (green water) with minimal amounts of irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water).
+Cabbage,4,8,30,produce,"Cabbage plants (like other brassicas) are primarily rainfed (green water), are somewhat drought-tolerant yet can receive supplemental irrigation (blue water) to improve yield and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Kale,4,8,30,produce,"Kale plants are primarily rainfed (green water), can receive a significant amount of supplemental irrigation (blue water) because they are shallow-rooted and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Kohlrabi,4,8,30,produce,"Kohlrabi plants are primarily rainfed (green water), can receive significant supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Onions,4,8,30,produce,"Onion bulb plants are rainfed (green water), can require a significant amount of supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Melons,4,7,26,produce,"Melon plants are mainly rainfed (green water), can receive some supplemental irrigation (blue water) and can cause water pollution from the application of fertilizer and/or pesticides (grey water)."
+Lettuce,4,7,26,produce,"Lettuce plants are rainfed (green water), require a significant amount of supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Tea,8,7,26,other,"Tea plants are primarily rainfed (green water), can receive a significant amount of supplemental irrigation (blue water) and can cause pollution from the use of fertilizer and/or pesticides (grey water). The grey water footprint is primarily associated with processing, packaging and transporting tea."
+Carrots,4,6,23,produce,"Carrots are a root crop that are primarily rainfed (green water), require supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Celery,4,6,23,produce,"Celery plants are rainfed (green water), require a significant amount of supplemental irrigation (blue water) because they are shallow-rooted and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
+Tomatoes,4,6,23,produce,Tomatoes are produced in both fields and greenhouses which has increased the irrigation requirements. Tomato plants are rainfed (green water) and irrigated (blue water) in about equal amounts and they can cause water pollution from the use of fertilizer and/or pesticides (grey water).
+Turnips,4,6,23,produce,"Turnips are cool season root vegetables that are rainfed (green water), can receive a significant amount of supplemental irrigation (blue water) and can cause water pollution from the use of fertilizer and/or pesticides (grey water)."
